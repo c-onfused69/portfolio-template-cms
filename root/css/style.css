@@ -613,7 +613,8 @@ nav .fa-solid {
     font-size: 25px;
   }
   nav ul {
-    background: #ff004f;
+    background: rgba(255, 0, 79, 0.15);
+    backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
     right: -200px;
