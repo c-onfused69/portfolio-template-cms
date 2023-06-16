@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 762.99 610.46">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-3 {
+        fill: none;
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        fill: #ff004f;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="2465.94" y1="2321.69" x2="2673.35" y2="2321.69" gradientTransform="translate(-2241.06 2807.56) rotate(-90)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#d70040"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-2600.64" y1="2870.55" x2="-2393.22" y2="2870.55" gradientTransform="translate(3552.91 2869.47) rotate(90)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#d70040"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-3">
+    <g id="graphics">
+      <g id="logo_art" data-name="logo art">
+        <path class="cls-4" d="m161.26,134.59h158.58l123.31,120.01V0H139.61C62.51,0,0,62.5,0,139.61v331.24c0,77.11,62.51,139.61,139.61,139.61h21.65V134.59Z"/>
+        <path class="cls-4" d="m623.38,0h-21.66v475.86h-158.58l-123.31-120.01v254.6h303.54c77.1,0,139.61-62.5,139.61-139.61V139.61C762.99,62.5,700.49,0,623.38,0Z"/>
+        <path class="cls-1" d="m0,354.68h161.26v-220.09h-45.87C51.66,134.59,0,186.25,0,249.98v104.7Z"/>
+        <path class="cls-2" d="m762.99,255.78h-161.26v220.09h45.88c63.73,0,115.39-51.66,115.39-115.38v-104.7Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
