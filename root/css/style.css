@@ -658,7 +658,10 @@ nav .fa-solid {
   .copyright {
     font-size: 14px;
   }
+  
 }
+
+
 /*-----------------------COMING SOON PAGE SECTION--------------------------------------------------------------------*/
 #cheader {
   width: 100%;
@@ -694,7 +697,7 @@ nav .fa-solid {
   z-index: 2;
 }
 .header-text2 h3 {
-  font-size: 30px;
+  font-size: 35px;
   margin-top: 5%;
   text-align: center;
 }
@@ -837,8 +840,11 @@ nav .fa-solid {
   
 }
 @media screen and (max-width: 600px){ 
+  .header-text2 h3{
+    font-size: 25px;
+  }
   .text h1{
-    font-size: 30px;
+    font-size: 25px;
   }
   .sign{
     margin-right: 20px;
@@ -846,6 +852,7 @@ nav .fa-solid {
   .sign a{
     font-size: 12px;
   }
+  
 }
 /*-----------------------SHOWCASE PAGE SECTION try--------------------------------------------------------------------*/
 /*#cheader {
