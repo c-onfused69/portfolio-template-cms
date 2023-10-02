@@ -684,3 +684,237 @@ nav .fa-solid {
   margin-top: 325px;
   background: none;
 }
+/*-----------------------SHOWCASE PAGE SECTION--------------------------------------------------------------------*/
+#cheader {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/wdd.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+}
+.header-text2 h3 {
+  font-size: 30px;
+  margin-top: 5%;
+  text-align: center;
+}
+.slider{
+  margin-top: 25px;
+  position: relative;
+  width: 100%;
+  background: transparent;
+}
+.workslider{
+  height: 655px;
+ display: none;
+  
+  overflow: hidden;
+}
+.prev, .next{
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 50px;
+  padding: 15px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.1s;
+  user-select: none;
+}
+.prev:hover, .next:hover{
+  color: #ff004f;
+}
+.next{
+  right: 0;
+}
+.dotbox{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 20px;
+  cursor: pointer;
+}
+.dot{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.activate, .dot:hover{
+  border-color: #ff004f;
+}
+.fade{
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade{
+  from {opacity: 0.8}
+  to {opacity: 1;}
+}
+@keyframes fade{
+  from {opacity: 0.8}
+  to {opacity: 1;}
+}
+.text{
+  position: absolute;
+  color: #fff;
+  letter-spacing: 2px;
+  line-height: 35px;
+  top: 40%;
+  left: 15%;
+  -webkit-animation-name: posi;
+  -webkit-animation-duration: 2s;
+  animation-name: posi;
+  animation-duration: 2s;
+  z-index: 1;
+}
+@-webkit-keyframes posi{
+  from {left: 25%;}
+  to {left: 15%;}
+}
+
+@keyframes posi{
+  from {left: 25%;}
+  to {left: 15%;}
+}
+.text h1{
+  color: #ff004f;
+  font-weight: bold;
+  margin: 20px;
+}
+.text p{
+  font-weight: bold;
+  font-size: 20px;
+}
+.workslider img{
+  transform: scale(1.3, 1.3);
+  -webkit-animation-name: zoomin;
+  -webkit-animation-duration: 40s;
+  animation-name: zoomin;
+  animation-duration: 40s;
+}
+@-webkit-keyframes zoomin {
+  from {transform: scale(.9, .9);}
+  to {transform: scale(1.3, 1.3);}
+}
+@keyframes zoomin {
+  from {transform: scale(.9, .9);}
+  to {transform: scale(1.3, 1.3);}
+}
+@media screen and (max-width: 800px){
+  .workslider{
+    height: 500px;
+  }
+  .text{
+    line-height: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-animation-name: posi-2;
+    -webkit-animation-duration: 2s;
+    animation-name: posi-2;
+    animation-duration: 2s;
+  }
+  @-webkit-keyframes posi-2 {
+    from {top: 35%;}
+    to {top: 50%}
+  }
+  @keyframes posi-2 {
+    from {top: 35%;}
+    to {top: 50%}
+  }
+  .text h1{
+    font-size: 40px;
+  }
+  .text p{
+    font-size: 13px;
+  }
+  
+}
+@media screen and (max-width: 600px){ 
+  .text h1{
+    font-size: 30px;
+  }
+  .sign{
+    margin-right: 20px;
+  }
+  .sign a{
+    font-size: 12px;
+  }
+}
+/*-----------------------SHOWCASE PAGE SECTION try--------------------------------------------------------------------*/
+/*#cheader {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/wdd.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.header-text2 h3 {
+  font-size: 30px;
+  margin-top: 5%;
+  text-align: center;
+}
+/*.header-text2 h3 span {
+  color: #ff004f;
+}*/
+
+/*.container2{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 600px;
+  padding: 50px;
+  background-color: #f5f5f5;
+  box-shadow: 0 30px 50px #dbdbdb;
+}
+#slider{
+  width: max-content;
+  margin-top: 50px;
+}
+  
+
+.itemcont{
+  width: 200px;
+  height: 300px;
+  background-position: 50% 50%;
+  display: inline-block;
+  transition: 0.5s;
+  background-size: cover;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translate(0, 50%);
+  border-radius: 20px;
+  box-shadow: 0 30px 50px #505050;
+}
+.itemcont:nth-child(1),
+.itemcont:nth-child(2){
+  left: 0;
+  top: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+}
+.itemcont:nth-child(3){
+  left: 50%;
+}
+
+/*.contact-center2 .socialmedia-icons2 {
+  margin-top: 70px;
+  text-align: center;
+}
+.contact-center2 .copyright2 {
+  margin-top: 325px;
+  background: none;
+}*/
