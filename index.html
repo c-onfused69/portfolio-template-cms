@@ -1,235 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website of Nahijul Islam</title>
-    <link rel="stylesheet" href="root/css/style.css">
-    <!------KIT SCRIPT------>
-    <script src="https://kit.fontawesome.com/5378eb7cb3.js" crossorigin="anonymous"></script>
-    <!------favicon------>
-    <link rel="icon" type="image/png" href="root/images/favicon.png"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nahijul Islam Niloy — Web Developer & Data Analyst based in Bangladesh. Building scalable web applications and delivering data insights.">
+  <title>Nahijul Islam Niloy — Web Developer &amp; Data Analyst</title>
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="Nahijul Islam Niloy — Web Developer & Data Analyst">
+  <meta property="og:description" content="Portfolio of Nahijul Islam Niloy, a Web Developer & Data Analyst based in Bangladesh. Building scalable web applications and delivering data insights.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://niloy.com">
+  <meta property="og:image" content="https://niloy.com/root/images/preview.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Person",
+    "name": "Nahijul Islam Niloy",
+    "url": "https://niloy.com",
+    "image": "https://niloy.com/root/images/DP.jpg",
+    "jobTitle": "Web Developer & Data Analyst",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "Bangladesh"
+    },
+    "sameAs": [
+      "https://github.com/c-onfused69",
+      "https://www.linkedin.com/in/nahijul-islam-niloy-139a09190/"
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link id="favicon" rel="icon" type="image/png" href="root/images/favicon.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="root/css/style.css">
 </head>
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="root/images/logo.png" class="logo">
-                <ul id="sidemenu">
-                    
-                       <li><a href="#header">Home</a></li>
-                       <li><a href="#about">About</a></li>
-                       <li><a href="#services">Services</a></li>
-                       <li><a href="#portfolio">Portfolio</a></li>
-                       <li><a href="#contact">Contact</a></li>
-                       <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
-                </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-                
-            </nav>
 
-            <div class="row">
-                <div class="header-text">
-                    <p>Web Developer | Data Analyst</p>
-                    <h1>Hi, I'm <span>Nahijul Islam Niloy</span><br>From Bangladesh</h1>
-                </div>
-
-                <div class="home-col-2">
-                    <img src="root/images/About pic.png">
-                </div>
-            </div>
-            
-        </div>
-
-    </div>
-
-    <!-----------------------ABOUT SECTION-------------------------------------------------------------------->
-<div id="about">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="root/images/DP.jpg">
-            </div>
-            <div class="about-col-2">
-                <h1 class="Sub-tittle">About Me</h1>
-                <p>Welcome to my portfolio website! I am a Web Developer and Data Analyst with a passion for creating innovative and efficient solutions. I endeavor to create high-quality work that satisfies the needs of my clients using my expertise in data analysis and web development. For additional information about what I can do for you, check at my past projects and experience.</p>
-
-                <div class="tab-tittles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
-
-                </div>
-                            <!--------SKILLS------>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li><span>Programing</span><br>
-                            <h3 class="sskills">HTML</h3><span class="bar"><span class="html"></span></span>
-                            <h3 class="sskills">CSS</h3><span class="bar"><span class="css"></span></span>
-                            <h3 class="sskills">JAVASCRIPT</h3><span class="bar"><span class="javascript"></span></span>
-                            <h3 class="sskills">PYTHON</h3><span class="bar"><span class="python"></span></span>
-                            <h3 class="sskills">C/C++</h3><span class="bar"><span class="ccp"></span></span>
-                            <h3 class="sskills">SQL</h3><span class="bar"><span class="sql"></span></span> 
-                        </li>
-
-
-
-                        <li><span>Graphic design & Illustration</span><br>
-                            <h3 class="sskills">Adobe Photoshop</h3><span class="bar"><span class="aps"></span></span>
-                            <h3 class="sskills">Adobe Illustrator</h3><span class="bar"><span class="ail"></span></span>
-                            <h3 class="sskills">Adobe Premire Pro</h3><span class="bar"><span class="appro"></span></span>
-                            <h3 class="sskills">Vegas Pro</h3><span class="bar"><span class="vegas"></span></span>
-                            <h3 class="sskills">Blender</h3><span class="bar"><span class="blender"></span></span>
-                        </li>
-
-
-
-                        <li><span>Other skills</span><br>
-                            <h3 class="sskills">MS Office</h3><span class="bar"><span class="mso"></span></span>
-                            <h3 class="sskills">Google Workspace</h3><span class="bar"><span class="gws"></span></span>
-                            <h3 class="sskills">Web Design</h3><span class="bar"><span class="wds"></span></span>
-                            <h3 class="sskills">Teamwork, Time Management</h3><span class="bar"><span class="ttm"></span></span>
-                        </li>
-
-
-
-                        <li><span>Languages & Communication</span><br>
-                            <h3 class="sskills">Bangla</h3><span class="bar"><span class="bangla"></span></span>
-                            <h3 class="sskills">English</h3><span class="bar"><span class="english"></span></span>
-                            <h3 class="sskills">Hindi</h3><span class="bar"><span class="hindi"></span></span>
-                        </li>
-                    </ul>
-                </div>
-                            <!--------EXPERIANCE------>  
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li><span>Dec 2023 ~ present</span><br>HVAC Project Manager at Desh Engineering.</li>
-                        <li><span>Mar 2022 ~ Dec 2023</span><br>Data Entry Operator at 3PL Express (Redx).</li>
-                        <li><span>Jun 2021 ~ Feb 2022</span><br>Part time Booking Officer at Sundarban Courier Service (Pvt.) Ltd.</li>
-                        <li><span>Sep 2020 ~ May 2021</span><br>Visual Merchandiser at Aquarius Aquarium Shop BD (AASBD).</li>
-                    </ul>
-                </div>
-                            <!--------EDUCATION------>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li><span>2019 ~ present</span><br>Bachelor of Science (B.Sc.) in Computer Science & Engineering.</li>
-                        <li><span>2016 ~ 2018</span><br>Higher Secondary Certificate (HSC) from Dhaka Imperial College.</li>
-                        <li><span>2014 ~ 2016</span><br>Secondary School Certificate (SSC) from Shamsul Haque Khan School & College.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- ── PRELOADER ─────────────────────────────── -->
+<div id="preloader">
+  <img src="root/images/favicon.png" alt="Loading..." class="preloader-img">
 </div>
-    <!-----------------------SERVICES SECTION-------------------------------------------------------------------->
+<div class="scroll-progress" id="scroll-progress"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
 
-<div id="services">
-    <div class="container">
-        <h1 class="Sub-tittle">My Services</h1>
-        <div class="services-list">
+<!-- ── NAV ─────────────────────────────────── -->
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#home" class="nav-logo" id="nav-logo">
+      <img src="root/images/logo.png" alt="Niloy Logo" id="logo-img">
+      <span class="logo-text" id="logo-fallback">Niloy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#exp">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right" style="display:flex; gap:16px; align-items:center;">
+      <button id="theme-toggle" class="btn btn-o" style="padding:8px 12px; font-size:.82rem; border-radius:var(--r-sm);" aria-label="Toggle theme">
+        Cyber
+      </button>
+      <a href="root/Resume/Resume of Md Nahijul Islam Niloy.pdf"
+         class="btn btn-o" style="padding:8px 18px;font-size:.82rem;" target="_blank">Download CV ↓</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ──────────────────────────── -->
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" aria-label="Close menu" onclick="toggleMob()">✕</button>
+  <a href="#home"      onclick="toggleMob()">Home</a>
+  <a href="#about"     onclick="toggleMob()">About</a>
+  <a href="#services"  onclick="toggleMob()">Services</a>
+  <a href="#portfolio" onclick="toggleMob()">Work</a>
+  <a href="#exp"       onclick="toggleMob()">Experience</a>
+  <a href="#contact"   onclick="toggleMob()">Contact</a>
+</div>
+
+<!-- ── HERO ────────────────────────────────── -->
+<section id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid"></div>
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="wrap">
+    <div class="hero-c">
+      <div class="hero-greet text-reveal">Hello, world — I'm</div>
+      <h1 class="hero-name">
+        Nahijul Islam<br>
+        <span class="grad">Niloy</span>
+      </h1>
+      <div class="hero-role">
+        <span class="hero-role-s">I build</span>
+        <span class="hero-role-t" id="typed-role">Web Applications</span>
+      </div>
+      <p class="hero-desc">
+        Web Developer &amp; Data Analyst based in Bangladesh. I turn complex problems into clean digital solutions — from interactive UIs to insightful data pipelines.
+      </p>
+      <div class="hero-cta">
+        <a href="#portfolio" class="btn btn-p">View My Work &nbsp;→</a>
+        <a href="#contact"   class="btn btn-o">Get In Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="stat-n"><em class="count" data-target="3">0</em>+</span>
+          <div class="stat-l">years experience</div>
+        </div>
+        <div>
+          <span class="stat-n"><em class="count" data-target="20">0</em>+</span>
+          <div class="stat-l">projects completed</div>
+        </div>
+        <div>
+          <span class="stat-n"><em class="count" data-target="6">0</em></span>
+          <div class="stat-l">languages / tools</div>
+        </div>
+        <div>
+          <span class="stat-n"><em class="count" data-target="100">0</em>%</span>
+          <div class="stat-l">client satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span class="scroll-text-anim">scroll &darr;</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ────────────────────────────────── -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about-g">
+
+      <div class="img-wrap" data-motion="fade-left">
+        <div class="img-glow"></div>
+        <div class="img-frame">
+          <img src="root/images/DP.jpg" alt="Nahijul Islam Niloy" loading="lazy">
+          <div class="img-ov"></div>
+        </div>
+        <div class="float-badge">
+          <div class="fb-label">Based in</div>
+          <div class="fb-val">🇧🇩 <span>Bangladesh</span></div>
+        </div>
+      </div>
+
+      <div data-motion="fade-right">
+        <div class="tag">About Me</div>
+        <h2 class="h2">Crafting digital<br><em>experiences</em> with data</h2>
+        <p class="about-bio">
+          I'm a Web Developer and Data Analyst pursuing a B.Sc. in Computer Science &amp; Engineering. With hands-on experience across project management, data operations, and creative design, I bring a unique multidisciplinary perspective to every project.
+        </p>
+        <p class="about-bio">
+          Whether building scalable web applications or uncovering insights from complex datasets, I'm passionate about solutions that are technically sound and visually compelling.
+        </p>
+
+        <div class="pills-sec">
+          <div class="pills-label">Programming &amp; Data</div>
+          <div class="pills-row">
+            <span class="pill p-b">HTML5</span>
+            <span class="pill p-b">CSS3</span>
+            <span class="pill p-b">JavaScript</span>
+            <span class="pill p-b">Python</span>
+            <span class="pill p-b">SQL</span>
+            <span class="pill p-b">C / C++</span>
+          </div>
+          <div class="pills-label">Design Tools</div>
+          <div class="pills-row">
+            <span class="pill p-c">Photoshop</span>
+            <span class="pill p-c">Illustrator</span>
+            <span class="pill p-c">Premiere Pro</span>
+            <span class="pill p-c">Vegas Pro</span>
+            <span class="pill p-c">Blender</span>
+          </div>
+          <div class="pills-label">Productivity &amp; Soft Skills</div>
+          <div class="pills-row">
+            <span class="pill p-a">MS Office</span>
+            <span class="pill p-a">Google Workspace</span>
+            <span class="pill p-a">Web Design</span>
+            <span class="pill p-a">Team Collaboration</span>
+            <span class="pill p-a">Time Management</span>
+          </div>
+          <div class="pills-label">Languages</div>
+          <div class="lang-row">
+            <span class="lang-chip">🇧🇩 Bangla</span>
+            <span class="lang-chip">🇺🇸 English</span>
+            <span class="lang-chip">🇮🇳 Hindi</span>
+          </div>
+        </div>
+
+        <div style="margin-top:30px">
+          <a href="root/Resume/Resume of Md Nahijul Islam Niloy.pdf"
+             class="btn btn-p" target="_blank">⬇ &nbsp;Download CV</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH MARQUEE ────────────────────────── -->
+<div class="marquee-sec">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>HTML5</span><span class="m-dot">·</span>
+      <span>CSS3</span><span class="m-dot">·</span>
+      <span>JavaScript</span><span class="m-dot">·</span>
+      <span>React</span><span class="m-dot">·</span>
+      <span>Next.js</span><span class="m-dot">·</span>
+      <span>Node.js</span><span class="m-dot">·</span>
+      <span>Python</span><span class="m-dot">·</span>
+      <span>SQL</span><span class="m-dot">·</span>
+      <span>Figma</span><span class="m-dot">·</span>
+      <span>Tailwind</span><span class="m-dot">·</span>
+    </div>
+    <div class="marquee-track">
+      <span>HTML5</span><span class="m-dot">·</span>
+      <span>CSS3</span><span class="m-dot">·</span>
+      <span>JavaScript</span><span class="m-dot">·</span>
+      <span>React</span><span class="m-dot">·</span>
+      <span>Next.js</span><span class="m-dot">·</span>
+      <span>Node.js</span><span class="m-dot">·</span>
+      <span>Python</span><span class="m-dot">·</span>
+      <span>SQL</span><span class="m-dot">·</span>
+      <span>Figma</span><span class="m-dot">·</span>
+      <span>Tailwind</span><span class="m-dot">·</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ──────────────────────────────── -->
+<section id="services" class="sec">
+  <div class="wrap">
+    <div class="svc-head" data-motion="clip-reveal">
+      <div class="tag" style="justify-content:center">Services</div>
+      <h2 class="h2" style="text-align:center">What I <em>offer</em></h2>
+      <p class="sub" style="text-align:center;margin:0 auto">From concept to deployment — end-to-end solutions for your digital needs.</p>
+    </div>
+    <div class="svc-grid" data-stagger="100">
+      <div class="glass svc-card" data-motion="scale-in">
+        <div class="svc-icon">🌐</div>
+        <h3>Web Development</h3>
+        <p>Responsive, high-performance websites and web applications. Clean code, modern architecture, and a user-first approach at every step.</p>
+      </div>
+      <div class="glass svc-card" data-motion="scale-in">
+        <div class="svc-icon">🎨</div>
+        <h3>UI / UX Design</h3>
+        <p>Intuitive interfaces that users genuinely love. I pair visual design principles with deep user behavior knowledge for experiences that convert.</p>
+      </div>
+      <div class="glass svc-card" data-motion="scale-in">
+        <div class="svc-icon">📊</div>
+        <h3>Data Analysis</h3>
+        <p>Transforming raw data into actionable insight. Python, SQL, and visualization tools to help you understand what your data is actually saying.</p>
+      </div>
+      <div class="glass svc-card" data-motion="scale-in">
+        <div class="svc-icon">📱</div>
+        <h3>App Design</h3>
+        <p>Beautiful, functional mobile application design for Android and iOS. Every screen crafted with user workflows and brand identity in mind.</p>
+      </div>
+      <div class="glass svc-card" data-motion="scale-in">
+        <div class="svc-icon">🎭</div>
+        <h3>Graphic Design</h3>
+        <p>Striking visuals, illustrations, and motion content using industry-leading tools — Photoshop, Illustrator, Premiere Pro, and Blender.</p>
+      </div>
+      <div class="glass svc-card" data-motion="scale-in">
+        <div class="svc-icon">🔗</div>
+        <h3>Networking Solutions</h3>
+        <p>Secure, scalable networking setups designed for seamless connectivity. From infrastructure planning to performance optimization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ─────────────────────────────── -->
+<section id="portfolio" class="sec">
+  <div class="wrap">
+    <div class="port-head" data-motion="clip-reveal">
+      <div>
+        <div class="tag">My Work</div>
+        <h2 class="h2">Selected <em>Projects</em></h2>
+      </div>
+      <a href="root/pages/showcase.html" class="btn btn-o">View All ↗</a>
+    </div>
+    <div class="port-grid" data-stagger="120">
+      <div class="proj" data-motion="parallax-scale">
+        <img src="root/images/My work 1.png" alt="Web Applications" loading="lazy">
+        <div class="proj-ov">
+          <div class="proj-cat">Development</div>
+          <div class="proj-title">Web Applications</div>
+          <div class="proj-desc">Scalable, responsive web apps built with modern technologies. Focused on performance, clean architecture, and great user experiences that stand up to real-world use.</div>
+          <a href="root/pages/comingsoon.html" class="proj-link">View Project →</a>
+        </div>
+      </div>
+      <div class="proj" data-motion="parallax-scale">
+        <img src="root/images/My work 2.jpg" alt="Networking Projects" loading="lazy">
+        <div class="proj-ov">
+          <div class="proj-cat">Infrastructure</div>
+          <div class="proj-title">Networking Projects</div>
+          <div class="proj-desc">Robust, secure networking solutions designed for seamless communication. Each project balances performance, security, and long-term maintainability.</div>
+          <a href="root/pages/comingsoon.html" class="proj-link">View Project →</a>
+        </div>
+      </div>
+      <div class="proj" data-motion="parallax-scale">
+        <img src="root/images/My work 3.jpg" alt="Mobile Applications" loading="lazy">
+        <div class="proj-ov">
+          <div class="proj-cat">Mobile</div>
+          <div class="proj-title">Mobile Applications</div>
+          <div class="proj-desc">High-quality Android &amp; iOS app design delivering exceptional user experiences through thoughtful interaction design and intuitive navigation flows.</div>
+          <a href="root/pages/comingsoon.html" class="proj-link">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE & EDUCATION ───────────────── -->
+<section id="exp" class="sec">
+  <div class="wrap">
+    <div class="tag">Background</div>
+    <h2 class="h2" style="margin-bottom:56px">Experience &amp; <em>Education</em></h2>
+    <div class="exp-g">
+
+      <div data-motion="fade-left">
+        <div class="exp-col-head">💼 &nbsp;Work Experience</div>
+        <div class="tl">
+          <div class="tl-item">
+            <div class="tl-date">Dec 2023 — Present</div>
+            <div class="tl-title">HVAC Project Manager</div>
+            <div class="tl-org">Desh Engineering</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Mar 2022 — Dec 2023</div>
+            <div class="tl-title">Data Entry Operator</div>
+            <div class="tl-org">3PL Express (Redx)</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Jun 2021 — Feb 2022</div>
+            <div class="tl-title">Part-time Booking Officer</div>
+            <div class="tl-org">Sundarban Courier Service (Pvt.) Ltd.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Sep 2020 — May 2021</div>
+            <div class="tl-title">Visual Merchandiser</div>
+            <div class="tl-org">Aquarius Aquarium Shop BD (AASBD)</div>
+          </div>
+        </div>
+      </div>
+
+      <div data-motion="fade-right">
+        <div class="exp-col-head">🎓 &nbsp;Education</div>
+        <div class="tl edu">
+          <div class="tl-item">
+            <div class="tl-date">2019 — Present</div>
+            <div class="tl-title">B.Sc. in Computer Science &amp; Engineering</div>
+            <div class="tl-org">Currently Pursuing</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2016 — 2018</div>
+            <div class="tl-title">Higher Secondary Certificate (HSC)</div>
+            <div class="tl-org">Dhaka Imperial College</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2014 — 2016</div>
+            <div class="tl-title">Secondary School Certificate (SSC)</div>
+            <div class="tl-org">Shamsul Haque Khan School &amp; College</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ───────────────────────────────── -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <div class="contact-g">
+
+      <div data-motion="skew-up">
+        <div class="tag">Contact</div>
+        <h2 class="h2">Let's build<br><em>something</em> great</h2>
+        <p class="sub" style="margin-bottom:0">
+          Have a project in mind or want to discuss opportunities? Available for freelance work and full-time roles. Let's connect.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:nniloy888@gmail.com" class="cl">
+            <div class="cl-icon">✉️</div>
             <div>
-                <i class="fa-solid fa-code fa-fade" style="color: #ffffff;"></i>
-                <h2>Web Design</h2>
-                <p>Welcome to my web design services! I specialize in creating captivating and user-friendly websites tailored to meet your unique needs. With a deep understanding of the latest industry trends and technologies, I am committed to delivering stunning designs that not only enhance your online presence but also drive results.</p>
-                <a href="root/pages/comingsoon.html">Learn more</a>
+              <div class="cl-label">Email</div>
+              <div class="cl-val">nniloy888@gmail.com</div>
             </div>
-
+          </a>
+          <a href="tel:+8801880233550" class="cl">
+            <div class="cl-icon">📞</div>
             <div>
-                <i class="fa-solid fa-crop-simple fa-fade" style="color: #ffffff;"></i>
-                <h2>UI/UX Design</h2>
-                <p>Welcome to my UI/UX design services! I specialize in creating exceptional user experiences through intuitive and visually appealing interfaces. With a keen eye for detail and a deep understanding of user behavior, I am dedicated to crafting designs that captivate and delight your target audience.</p>
-                <a href="root/pages/comingsoon.html">Learn more</a>
+              <div class="cl-label">Phone</div>
+              <div class="cl-val">+880 1880 233 550</div>
             </div>
-
+          </a>
+          <a href="https://github.com/c-onfused69" class="cl" target="_blank" rel="noopener">
+            <div class="cl-icon" style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700">⌨</div>
             <div>
-                <i class="fa-brands fa-app-store fa-fade" style="color: #ffffff;"></i>
-                <h2>App Design</h2>
-                <p>Welcome to my app design services! I specialize in creating visually stunning and highly functional mobile applications that engage users and drive success. With a focus on user experience (UX) and interface design (UI), I am dedicated to delivering app designs that are intuitive, aesthetically pleasing, and aligned with your brand.</p>
-                <a href="root/pages/comingsoon.html">Learn more</a>
+              <div class="cl-label">GitHub</div>
+              <div class="cl-val">c-onfused69</div>
             </div>
+          </a>
         </div>
-    </div>
-</div>
-    <!-----------------------PORTFOLIO SECTION-------------------------------------------------------------------->
-<div id="portfolio">
-    <div class="container">
-        <h1 class="Sub-tittle">My Work</h1>
-        <div class="work-list">
-            <div class="work">
-                <img src="root/images/My work 1.png">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="root/pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="root/images/My work 2.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="root/pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="root/images/My work 3.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="root/pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
+        <div class="socials">
+          <a href="https://www.facebook.com/confused.as69/" class="soc" target="_blank" rel="noopener" title="Facebook">f</a>
+          <a href="https://github.com/c-onfused69" class="soc" target="_blank" rel="noopener" title="GitHub" style="font-size:.8rem">gh</a>
+          <a href="https://www.linkedin.com/in/nahijul-islam-niloy-139a09190/" class="soc" target="_blank" rel="noopener" title="LinkedIn" style="font-size:.78rem">in</a>
         </div>
+      </div>
 
-        <a href="root/pages/showcase.html" class="button">See more</a>
-
-    </div>
-</div>
-
-<!-----------------------CONTACT SECTION-------------------------------------------------------------------->
-
-<div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h1 class="Sub-tittle">Contact Me</h1>
-                <p><i class="fa-solid fa-paper-plane" style="color: #ff004f;"></i> nniloy888@gmail.com</p>
-                <p><i class="fa-solid fa-square-phone" style="color: #ff004f;"></i> +8801880233550</p>
-                <div class="socialmedia-icons">
-                    <a href="https://www.facebook.com/confused.as69/?_rdc=1&_rdr"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://github.com/c-onfused69"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/nahijul-islam-niloy-139a09190/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                </div>
-<!--------------------------------------------CV------------------------------------------------------------->
-                <a href="root/Resume/Resume of Md Nahijul Islam Niloy.pdf" download class="button btncv">Download CV</a>
+      <div class="glass form-wrap" data-motion="unfold">
+        <h3>Send a Message</h3>
+        <form onsubmit="submitForm(event)">
+          <div class="f-row">
+            <div class="fg">
+              <label>First Name</label>
+              <input type="text" placeholder="Your first name" required>
             </div>
-            <div class="contact-right">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="Email" placeholder="Your Email [Your information will be kept safe]" required>
-                    <input type="contact-number" name="Contact Number" placeholder="Your Contact Number [Optional]">
-                    <textarea name="Message" id="" cols="30" rows="10" placeholder="Your Message Here."></textarea>
-                    
-                    <button type="submit" class="button btnsub">Submit</button>
-                </form>
-                <span id="msg"></span>
-
-
+            <div class="fg">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your last name">
             </div>
-        </div>
-    </div>
-    <!-----------------------COPYRIGHT SECTION-------------------------------------------------------------------->
-    <div class="copyright">
-        <p>Copyright ©️ Md. Nahijul Islam Niloy. <i class="fa-solid fa-heart fa-beat"></i></p>
-    </div>
-</div>
+          </div>
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="fg">
+            <label>Subject</label>
+            <input type="text" placeholder="Project inquiry / Collaboration / Hire">
+          </div>
+          <div class="fg">
+            <label>Message</label>
+            <textarea placeholder="Tell me about your project, idea, or opportunity..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-p f-sub" id="form-btn">Send Message &nbsp;→</button>
+        </form>
+      </div>
 
-<!-----------------------SCRIPT SECTION-------------------------------------------------------------------->
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-t">© 2026 <em>Md. Nahijul Islam Niloy</em>. All rights reserved.</div>
+      <div class="foot-t">Built with <em>♥</em> in Bangladesh</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<!-- ── UI ELEMENTS ───────────────────────────── -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+<div id="toast" class="toast">Message sent successfully!</div>
+
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="root/script/script.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="root/script/email.js"></script>
 </body>
 </html>

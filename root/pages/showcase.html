@@ -1,410 +1,944 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showcase</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <!------KIT SCRIPT------>
-    <script src="https://kit.fontawesome.com/5378eb7cb3.js" crossorigin="anonymous"></script>
-    <!------favicon------>
-    <link rel="icon" type="image/png" href="../images/favicon.png"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View the portfolio and featured projects of Nahijul Islam Niloy.">
+  <title>Showcase — Niloy Portfolio</title>
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="Showcase — Niloy Portfolio">
+  <meta property="og:description" content="View the portfolio and featured projects of Nahijul Islam Niloy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://niloy.com/root/pages/showcase.html">
+  <meta property="og:image" content="https://niloy.com/root/images/preview.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link id="favicon" rel="icon" type="image/png" href="../images/favicon.png">
+
+  <!-- Shared Design System -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Showcase-specific styles -->
+  <style>
+  /* ── PAGE HERO ────────────────────────────── */
+  .sc-hero{min-height:52vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:calc(var(--nav) + 40px);padding-bottom:40px;background:var(--bg1)}
+  .sc-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+  .sc-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+  .sc-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%)}
+  .sc-hero-blob{position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.06) 0%,transparent 65%);animation:blob 12s ease-in-out infinite alternate}
+  .sc-hero-content{position:relative;z-index:1;text-align:center;max-width:700px;margin:0 auto}
+  .sc-hero-content .tag{justify-content:center}
+  .sc-hero-content .h2{font-size:clamp(2.2rem,5vw,3.5rem);margin-bottom:18px}
+  .sc-hero-desc{font-size:1.05rem;color:var(--t3);line-height:1.75;max-width:560px;margin:0 auto}
+  .sc-stats{display:flex;justify-content:center;gap:48px;margin-top:40px;flex-wrap:wrap}
+  .sc-stat{text-align:center}
+  .sc-stat-n{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--t1);display:block}
+  .sc-stat-n em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .sc-stat-l{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--t3);letter-spacing:.08em;margin-top:4px}
+
+  /* ── FEATURED CAROUSEL ───────────────────── */
+  .carousel-sec{position:relative}
+  .carousel-wrap{position:relative;overflow:hidden;border-radius:var(--r);border:1px solid var(--border)}
+  .carousel-track{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+  .carousel-slide{min-width:100%;position:relative}
+  .carousel-slide img{width:100%;height:420px;object-fit:cover;display:block}
+  .carousel-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,8,15,.95) 0%,rgba(10,15,30,.4) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
+  .carousel-ov .proj-cat{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .carousel-ov h3{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--t1);margin-bottom:8px}
+  .carousel-ov p{font-size:.9rem;color:var(--t3);line-height:1.7;max-width:480px}
+  .carousel-nav{display:flex;gap:10px;margin-top:20px;justify-content:center}
+  .carousel-dot{width:36px;height:4px;border-radius:2px;background:rgba(255,255,255,.15);border:none;cursor:pointer;transition:var(--tr);padding:0}
+  .carousel-dot.active{background:var(--blue);width:52px}
+  .carousel-dot:hover{background:rgba(255,255,255,.3)}
+  .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(4,8,15,.7);backdrop-filter:blur(8px);border:1px solid var(--border);color:var(--t2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:var(--tr);z-index:2}
+  .carousel-btn:hover{background:rgba(59,130,246,.2);border-color:var(--blue);color:var(--t1)}
+  .carousel-btn.prev{left:16px}
+  .carousel-btn.next{right:16px}
+
+  /* ── FILTER TABS ─────────────────────────── */
+  .filter-bar{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:48px}
+  .filter-btn{padding:8px 20px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--t3);transition:var(--tr)}
+  .filter-btn:hover{border-color:rgba(59,130,246,.3);color:var(--t2);background:rgba(59,130,246,.06)}
+  .filter-btn.active{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 0 20px rgba(59,130,246,.25)}
+
+  /* ── PROJECT GRID ────────────────────────── */
+  .sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .sc-card{border-radius:var(--r);overflow:hidden;position:relative;aspect-ratio:4/3;cursor:pointer;border:1px solid var(--border);transition:border-color .3s ease,transform .5s cubic-bezier(.16,1,.3,1),opacity .5s ease}
+  .sc-card:hover{border-color:var(--border-h);transform:translateY(-6px)}
+  .sc-card.hidden{display:none}
+  .sc-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1);display:block}
+  .sc-card:hover img{transform:scale(1.07)}
+  .sc-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,8,15,.96) 0%,rgba(10,15,30,.4) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;transition:var(--tr)}
+  .sc-card:hover .sc-card-ov{background:linear-gradient(to top,rgba(4,8,15,.98) 0%,rgba(10,15,30,.88) 60%,rgba(10,15,30,.3) 100%)}
+  .sc-card-cat{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+  .sc-card-title{font-family:'Space Grotesk',sans-serif;font-size:1.08rem;font-weight:600;color:var(--t1);margin-bottom:6px}
+  .sc-card-desc{font-size:.8rem;color:var(--t3);line-height:1.6;opacity:0;transform:translateY(8px);transition:var(--tr);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .sc-card:hover .sc-card-desc{opacity:1;transform:translateY(0)}
+  .sc-card-link{display:inline-flex;align-items:center;gap:5px;color:var(--blue-l);font-size:.78rem;font-weight:500;text-decoration:none;opacity:0;transform:translateY(8px);transition:var(--tr);font-family:'Space Grotesk',sans-serif}
+  .sc-card:hover .sc-card-link{opacity:1;transform:translateY(0)}
+
+  /* ── CERTIFICATES GRID ───────────────────── */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+  .cert-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:var(--tr);background:var(--card);backdrop-filter:blur(16px)}
+  .cert-card:hover{border-color:var(--border-h);box-shadow:var(--glow);transform:translateY(-4px)}
+  .cert-card img{width:100%;height:auto;display:block}
+  .cert-card-body{padding:20px 22px}
+  .cert-card-body h4{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:var(--t1);margin-bottom:4px}
+  .cert-card-body p{font-size:.82rem;color:var(--t3);line-height:1.6}
+  .cert-card-badge{display:inline-flex;align-items:center;gap:5px;margin-top:10px;padding:4px 12px;border-radius:100px;background:var(--badge-bg);border:1px solid var(--badge-border);font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--cyan-l);letter-spacing:.06em}
+
+  /* ── CTA BAND ────────────────────────────── */
+  .cta-band{text-align:center;position:relative}
+  .cta-band::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+  .cta-band .h2{margin-bottom:18px}
+  .cta-band .sub{margin:0 auto 32px}
+  .cta-band .tag{justify-content:center}
+
+  /* ── BACK LINK ───────────────────────────── */
+  .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--t3);font-size:.85rem;font-weight:500;text-decoration:none;transition:var(--tr);font-family:'Space Grotesk',sans-serif;margin-bottom:12px}
+  .back-link:hover{color:var(--blue-l);transform:translateX(-4px)}
+
+  /* ── SECTION DIVIDER ─────────────────────── */
+  .sec-alt{background:var(--bg1);position:relative}
+  .sec-alt::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+
+  /* ── RESPONSIVE ──────────────────────────── */
+  @media(max-width:1024px){
+    .sc-grid{grid-template-columns:repeat(2,1fr)}
+    .carousel-slide img{height:320px}
+    .sc-stats{gap:32px}
+  }
+  @media(max-width:768px){
+    .sc-hero{min-height:42vh;padding-top:calc(var(--nav) + 24px)}
+    .sc-grid{grid-template-columns:1fr}
+    .carousel-slide img{height:260px}
+    .carousel-ov{padding:24px}
+    .carousel-ov h3{font-size:1.2rem}
+    .carousel-btn{display:none}
+    .cert-grid{grid-template-columns:1fr}
+    .sc-stats{gap:20px}
+    .filter-bar{gap:4px}
+    .filter-btn{padding:7px 14px;font-size:.76rem}
+  }
+  </style>
 </head>
 <body>
-    <div id="cheader">
-        <div class="container">
-            <nav>
-                <img src="../images/logo.png" class="logo">
-                <ul id="sidemenu">
-                    
-                       <li><a href="../../index.html">Home</a></li>
-                       <li><a href="../../index.html#about">About</a></li>
-                       <li><a href="../../index.html#services">Services</a></li>
-                       <li><a href="../../index.html#portfolio">Portfolio</a></li>
-                       <li><a href="../../index.html#contact">Contact</a></li>
-                       <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
-                </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-                
-            </nav>
-                <div class="header-text2">
-                    <h3>Latest from the Showcase</h3>
-                </div>  
-    <!-----------------------SHOWCASE SECTION----------------------------------------------------->
-    <div class="slider">
-        <div class="workslider fade" style="display: block;">
-            <div class="text">
-                <h1>Image 1</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/1.jpg" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 2</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/2.png" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 3</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/3.png" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 4</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/4.png" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 5</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/5.png" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 6</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/6.png" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 7</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/7.png" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 8</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/8.png" style="width: 100%; height:100%;">
-        </div>
-        <div class="workslider fade">
-            <div class="text">
-                <h1>Image 9</h1>
-                <p>Tittle<br>Description...</p>
-            </div>
-                <img src="../images/showcase/9.png" style="width: 100%; height:100%;">
-        </div>
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+<!-- ── PRELOADER ─────────────────────────────── -->
+<div id="preloader">
+  <img src="../images/favicon.png" alt="Loading..." class="preloader-img">
+</div>
+<div class="scroll-progress" id="scroll-progress"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
 
-        <div class="dotsbox" style="text-align: center;">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span> 
-            <span class="dot" onclick="currentSlide(5)"></span>
-            <span class="dot" onclick="currentSlide(6)"></span>
-            <span class="dot" onclick="currentSlide(7)"></span>
-            <span class="dot" onclick="currentSlide(8)"></span> 
-            <span class="dot" onclick="currentSlide(9)"></span>
-        </div>
+<!-- ── NAV ─────────────────────────────────── -->
+<nav id="nav" class="scrolled">
+  <div class="wrap nav-in">
+    <a href="../../index.html" class="nav-logo" id="nav-logo">
+      <img src="../images/logo.png" alt="Niloy Logo" id="logo-img">
+      <span class="logo-text" id="logo-fallback">Niloy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../index.html#about">About</a></li>
+      <li><a href="../../index.html#services">Services</a></li>
+      <li><a href="../../index.html#portfolio" class="active">Work</a></li>
+      <li><a href="../../index.html#exp">Experience</a></li>
+      <li><a href="../../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right" style="display:flex; gap:16px; align-items:center;">
+      <button id="theme-toggle" class="btn btn-o" style="padding:8px 12px; font-size:.82rem; border-radius:var(--r-sm);" aria-label="Toggle theme">
+        Cyber
+      </button>
+      <a href="../Resume/Resume of Md Nahijul Islam Niloy.pdf"
+         class="btn btn-o" style="padding:8px 18px;font-size:.82rem;" target="_blank">Download CV ↓</a>
     </div>
-    
-        
-    
+    <button class="burger" id="burger" aria-label="Open menu" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <!-----------------------SHOWCASE SECTION try-----------------------------------------------
-                <div class="container2">
-                    <div id="slider">
-                        <div class="itemshow" style="background-image: url(../images/showcase/1.jpg)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                        <div class="itemshow" style="background-image: url(../images/showcase/2.png)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                        <div class="itemshow" style="background-image: url(../images/showcase/3.png)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                        <div class="itemshow" style="background-image: url(../images/showcase/4.png)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                        <div class="itemshow" style="background-image: url(../images/showcase/5.png)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                        <div class="itemshow" style="background-image: url(../images/showcase/6.png)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                        <div class="itemshow" style="background-image: url(../images/showcase/7.png)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                        <div class="itemshow" style="background-image: url(../images/showcase/8.png)"></div>
-                        <div class="itemcont">
-                            <div class="itemname">NAME</div>
-                            <div class="itemdesc">DESCRIPTION...</div>
-                            <button>See more</button>
-                        </div>
-
-                    </div>
-                    <div class="buttons">
-                        <button id="prev"><i class="fa-solid fa-circle-arrow-left"></i></button>
-                        <button id="next"><i class="fa-solid fa-circle-arrow-right"></i></button>
-    
-                    </div>
-
-                </div>
-                --------------------->
-              
-    <!-----------------------CONTACT SECTION---------------------------------------
-                <div class="contact-center2">
-                    <div class="socialmedia-icons2">
-                        <a href="https://www.facebook.com/confused.as69/?_rdc=1&_rdr"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://github.com/c-onfused69"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/nahijul-islam-niloy-139a09190/"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    </div>----------------------------->
-    <!-----------------------COPYRIGHT SECTION-------------------------------------------------------------
-
-                    <div class="copyright2">
-                        <p>Copyright ©️ Md. Nahijul Islam Niloy. <i class="fa-solid fa-heart fa-beat"></i></p>
-                    </div>
-                    
-                </div>------->
-    
-        </div>
-    </div>
-        <!-----------------------PORTFOLIO SECTION-------------------------------------------------------------------->
-<div id="portfolio">
-    <div class="container">
-        <h1 class="Sub-tittle">My Works</h1>
-        <div class="work-list">
-            <div class="work">
-                <img src="../images/showcase/works/1.jpg">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/2.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/15.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="work-list">
-            <div class="work">
-                <img src="../images/showcase/works/3.jpg">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/4.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/5.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="work-list">
-            <div class="work">
-                <img src="../images/showcase/works/6.jpg">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/7.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/8.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="work-list">
-            <div class="work">
-                <img src="../images/showcase/works/10.jpg">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/11.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/14.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="work-list">
-            <div class="work">
-                <img src="../images/showcase/works/13.jpg">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/12.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/3.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="work-list">
-            <div class="work">
-                <img src="../images/showcase/works/3.jpg">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/3.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/3.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <a href="../pages/comingsoon.html" class="button">See more</a>
-
-    </div>
+<!-- ── MOBILE MENU ──────────────────────────── -->
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" aria-label="Close menu" onclick="toggleMob()">✕</button>
+  <a href="../../index.html"            onclick="toggleMob()">Home</a>
+  <a href="../../index.html#about"      onclick="toggleMob()">About</a>
+  <a href="../../index.html#services"   onclick="toggleMob()">Services</a>
+  <a href="../../index.html#portfolio"  onclick="toggleMob()">Work</a>
+  <a href="../../index.html#exp"        onclick="toggleMob()">Experience</a>
+  <a href="../../index.html#contact"    onclick="toggleMob()">Contact</a>
 </div>
 
-<!-----------------------PORTFOLIO SECTION-------------------------------------------------------------------->
-<div id="portfolio">
-    <div class="container">
-        <h1 class="Sub-tittle">Certificates</h1>   
-        <div class="work-list">
-            <div class="work">
-                <img src="../images/showcase/certificates/Networking_Basics_certificate.png">
-                <div class="layer">
-                    <h3>Web Applications</h3>
-                    <p>Welcome to my web application works! I specialize in developing powerful and scalable web applications that empower businesses and individuals with efficient and effective digital solutions. With a focus on cutting-edge technologies and robust development practices, I am committed to delivering web applications that streamline processes, enhance productivity, and drive growth.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/3.jpg">
-                <div class="layer">
-                    <h3>Networking Projects</h3>
-                    <p>Welcome to my networking projects works! I specialize in designing and implementing robust and secure networking solutions that enable seamless communication and connectivity in the digital world. With a deep understanding of networking principles and technologies, I am committed to delivering projects that optimize performance, enhance security, and foster collaboration.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="../images/showcase/works/3.jpg">
-                <div class="layer">
-                    <h3>Android/ios Applications</h3>
-                    <p>Welcome to my Android/iOS applications works! I specialize in designing and developing high-quality mobile applications that transform user experiences and drive digital innovation. With a focus on user-centric design and cutting-edge technologies, I am dedicated to delivering applications that are engaging, intuitive, and aligned with your business goals.</p>
-                    <a href="../pages/comingsoon.html"><i class="fa-solid fa-up-right-from-square" style="color: #ff004f;"></i></a>
-                </div>
-            </div>
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="sc-hero">
+  <div class="sc-hero-grid"></div>
+  <div class="sc-hero-blob"></div>
+  <div class="wrap">
+    <div class="sc-hero-content" data-motion="fade-up">
+      <a href="../../index.html" class="back-link">← Back to Home</a>
+      <div class="tag text-reveal">Showcase</div>
+      <h2 class="h2">All <em>Projects</em> &amp; Works</h2>
+      <p class="sc-hero-desc">A curated collection of my web development, networking, mobile design, and creative projects — each crafted with precision and purpose.</p>
+      <div class="sc-stats">
+        <div class="sc-stat">
+          <span class="sc-stat-n"><em class="sc-count" data-target="18">0</em>+</span>
+          <div class="sc-stat-l">projects</div>
         </div>
+        <div class="sc-stat">
+          <span class="sc-stat-n"><em class="sc-count" data-target="4">0</em></span>
+          <div class="sc-stat-l">categories</div>
+        </div>
+        <div class="sc-stat">
+          <span class="sc-stat-n"><em class="sc-count" data-target="1">0</em></span>
+          <div class="sc-stat-l">certificate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <a href="../pages/comingsoon.html" class="button">See more</a>
+<!-- ── FEATURED CAROUSEL ───────────────────── -->
+<section class="sec" id="featured">
+  <div class="wrap">
+    <div data-motion="fade-up">
+      <div class="tag">Featured</div>
+      <h2 class="h2" style="margin-bottom:32px">Highlighted <em>Works</em></h2>
+    </div>
+    <div class="carousel-wrap" data-motion="scale-in" data-delay="150">
+      <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Previous slide">‹</button>
+      <button class="carousel-btn next" onclick="carouselMove(1)" aria-label="Next slide">›</button>
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/1.jpg" alt="Featured work 1">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>Creative Web Design</h3>
+            <p>A modern, responsive web experience built with attention to every interaction detail and visual polish.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/2.png" alt="Featured work 2">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>Data-Driven Dashboard</h3>
+            <p>Interactive data visualizations and analytics dashboards designed for clarity and actionable insight.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/3.png" alt="Featured work 3">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>Network Architecture</h3>
+            <p>Secure, scalable networking infrastructure designed for enterprise-grade reliability and performance.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/4.png" alt="Featured work 4">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>Mobile UI Concept</h3>
+            <p>Intuitive mobile application design with seamless navigation flows and delightful micro-interactions.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/5.png" alt="Featured work 5">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>Brand Identity System</h3>
+            <p>Complete visual identity system — from logo and color palette to typography and application guidelines.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/6.png" alt="Featured work 6">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>Full-Stack Application</h3>
+            <p>End-to-end web application with robust backend, clean API design, and polished frontend experience.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/7.png" alt="Featured work 7">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>E-Commerce Platform</h3>
+            <p>Feature-rich e-commerce solution with seamless checkout flows and inventory management system.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/8.png" alt="Featured work 8">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>IoT Monitoring System</h3>
+            <p>Real-time IoT data monitoring platform with intuitive alerts and historical trend analysis.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img loading="lazy" src="../images/showcase/9.png" alt="Featured work 9">
+          <div class="carousel-ov">
+            <div class="proj-cat">Showcase</div>
+            <h3>Portfolio Redesign</h3>
+            <p>Complete portfolio redesign with modern aesthetics, smooth animations, and optimized performance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-nav" id="carousel-nav"></div>
+  </div>
+</section>
+
+<!-- ── ALL PROJECTS ─────────────────────────── -->
+<section class="sec sec-alt" id="all-projects">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:16px" data-motion="blur-in">
+      <div class="tag" style="justify-content:center">Portfolio</div>
+      <h2 class="h2">All <em>Projects</em></h2>
+      <p class="sub" style="margin:0 auto 36px">Browse by category or explore all works below.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-bar" data-motion="fade-up" data-delay="100">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+      <button class="filter-btn" data-filter="network">Networking</button>
+      <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <!-- Project Grid -->
+    <div class="sc-grid" id="project-grid" data-stagger="80">
+
+      <!-- ROW 1 -->
+      <div class="sc-card" data-motion="flip-up" data-category="web">
+        <img loading="lazy" src="../images/showcase/works/1.jpg" alt="Web Application">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Web Development</div>
+          <div class="sc-card-title">Web Applications</div>
+          <div class="sc-card-desc">Scalable, responsive web apps built with modern technologies and clean architecture.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="network">
+        <img loading="lazy" src="../images/showcase/works/2.jpg" alt="Networking Project">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Infrastructure</div>
+          <div class="sc-card-title">Networking Projects</div>
+          <div class="sc-card-desc">Robust networking solutions designed for seamless connectivity and security.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="mobile">
+        <img loading="lazy" src="../images/showcase/works/15.jpg" alt="Mobile Application">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Mobile</div>
+          <div class="sc-card-title">Mobile Applications</div>
+          <div class="sc-card-desc">High-quality Android & iOS app design with exceptional user experiences.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="sc-card" data-motion="flip-up" data-category="web">
+        <img loading="lazy" src="../images/showcase/works/3.jpg" alt="Web Platform">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Web Development</div>
+          <div class="sc-card-title">Interactive Web Platform</div>
+          <div class="sc-card-desc">Dynamic web platform with rich interactivity, real-time features, and polished UI.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="network">
+        <img loading="lazy" src="../images/showcase/works/4.jpg" alt="Network Infrastructure">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Infrastructure</div>
+          <div class="sc-card-title">Network Infrastructure</div>
+          <div class="sc-card-desc">Enterprise-grade network design optimizing performance and long-term scalability.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="mobile">
+        <img loading="lazy" src="../images/showcase/works/5.jpg" alt="Mobile App Design">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Mobile</div>
+          <div class="sc-card-title">App Interface Design</div>
+          <div class="sc-card-desc">Thoughtful mobile UI/UX with intuitive navigation and smooth transitions.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="sc-card" data-motion="flip-up" data-category="web">
+        <img loading="lazy" src="../images/showcase/works/6.jpg" alt="Dashboard">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Web Development</div>
+          <div class="sc-card-title">Analytics Dashboard</div>
+          <div class="sc-card-desc">Data-rich dashboard with interactive charts, filters, and export functionality.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="network">
+        <img loading="lazy" src="../images/showcase/works/7.jpg" alt="Security Setup">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Infrastructure</div>
+          <div class="sc-card-title">Security Architecture</div>
+          <div class="sc-card-desc">Comprehensive security infrastructure with monitoring, firewalls, and threat detection.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="mobile">
+        <img loading="lazy" src="../images/showcase/works/8.jpg" alt="Mobile Commerce">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Mobile</div>
+          <div class="sc-card-title">Mobile Commerce App</div>
+          <div class="sc-card-desc">Feature-complete mobile commerce experience with seamless payment integration.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <!-- ROW 4 -->
+      <div class="sc-card" data-motion="flip-up" data-category="web">
+        <img loading="lazy" src="../images/showcase/works/10.jpg" alt="CMS Platform">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Web Development</div>
+          <div class="sc-card-title">Content Management System</div>
+          <div class="sc-card-desc">Custom CMS built for flexibility, performance, and an intuitive editing experience.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="network">
+        <img loading="lazy" src="../images/showcase/works/11.jpg" alt="Cloud Setup">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Infrastructure</div>
+          <div class="sc-card-title">Cloud Deployment</div>
+          <div class="sc-card-desc">Scalable cloud infrastructure with automated deployment pipelines and monitoring.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="design">
+        <img loading="lazy" src="../images/showcase/works/14.jpg" alt="Brand Design">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Design</div>
+          <div class="sc-card-title">Visual Identity Design</div>
+          <div class="sc-card-desc">Complete brand identity — logo, color system, typography, and asset guidelines.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <!-- ROW 5 -->
+      <div class="sc-card" data-motion="flip-up" data-category="web">
+        <img loading="lazy" src="../images/showcase/works/13.jpg" alt="Portfolio Site">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Web Development</div>
+          <div class="sc-card-title">Portfolio Website</div>
+          <div class="sc-card-desc">Modern portfolio site with particle animations, scroll motion, and dark theme.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="design">
+        <img loading="lazy" src="../images/showcase/works/12.jpg" alt="UI Kit">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Design</div>
+          <div class="sc-card-title">UI Component Library</div>
+          <div class="sc-card-desc">Reusable design system with tokens, components, and comprehensive documentation.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="sc-card" data-motion="flip-up" data-category="web">
+        <img loading="lazy" src="../images/showcase/works/3.jpg" alt="Landing Page">
+        <div class="sc-card-ov">
+          <div class="sc-card-cat">Web Development</div>
+          <div class="sc-card-title">Landing Page Design</div>
+          <div class="sc-card-desc">High-conversion landing page with A/B tested layouts and compelling copy.</div>
+          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
+        </div>
+      </div>
 
     </div>
-</div>
+    <div id="load-more-container" style="text-align:center; margin-top:40px; display:none;" data-motion="fade-up">
+      <button id="btn-load-more" class="btn btn-o">Load More</button>
+    </div>
+  </div>
+</section>
 
-<script src="../script/showcase.js"></script>    
+<!-- ── CERTIFICATES ─────────────────────────── -->
+<section class="sec" id="certificates">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px" data-motion="fade-up">
+      <div class="tag" style="justify-content:center">Achievements</div>
+      <h2 class="h2">Certificates &amp; <em>Credentials</em></h2>
+      <p class="sub" style="margin:0 auto">Professional certifications and completed courses that validate my expertise.</p>
+    </div>
+    <div class="cert-grid" data-stagger="120">
+      <div class="cert-card" data-motion="scale-in">
+        <img loading="lazy" src="../images/showcase/certificates/Networking_Basics_certificate.png" alt="Networking Basics Certificate">
+        <div class="cert-card-body">
+          <h4>Networking Basics</h4>
+          <p>Foundational networking concepts — IP addressing, subnetting, routing, and network security principles.</p>
+          <span class="cert-card-badge">✓ Verified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ──────────────────────────────────── -->
+<section class="sec sec-alt cta-band">
+  <div class="wrap" data-motion="blur-in">
+    <div class="tag">Get in Touch</div>
+    <h2 class="h2">Like what you <em>see</em>?</h2>
+    <p class="sub">Let's discuss your next project. I'm available for freelance work and full-time opportunities.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="../../index.html#contact" class="btn btn-p">Start a Conversation &nbsp;→</a>
+      <a href="../../index.html#portfolio" class="btn btn-o">← Back to Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-t">© 2026 <em>Md. Nahijul Islam Niloy</em>. All rights reserved.</div>
+      <div class="foot-t">Built with <em>♥</em> in Bangladesh</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── UI ELEMENTS ───────────────────────────── -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+<div id="toast" class="toast">Message sent successfully!</div>
+
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+/* ─── PRELOADER ─────────────────────────────── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.body.classList.add('loaded');
+  }, 400);
+});
+
+/* ─── LENIS SMOOTH SCROLL ───────────────────── */
+let lenis;
+if (typeof Lenis !== 'undefined') {
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      lenis.scrollTo(this.getAttribute('href'));
+    });
+  });
+}
+
+/* ─── LOGO FALLBACK ─────────────────────────── */
+document.getElementById('logo-img').onerror = function(){
+  this.style.display = 'none';
+  document.getElementById('logo-fallback').style.display = 'block';
+};
+
+/* ─── CUSTOM CURSOR & SCROLL PROGRESS ───────── */
+const cDot = document.getElementById('cursor-dot');
+const cRing = document.getElementById('cursor-ring');
+const sProg = document.getElementById('scroll-progress');
+
+if(cDot && cRing) {
+  let mouseX = -100, mouseY = -100;
+  let ringX = -100, ringY = -100;
+
+  window.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cDot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+  });
+
+  const renderCursor = () => {
+    ringX += (mouseX - ringX) * 0.2;
+    ringY += (mouseY - ringY) * 0.2;
+    cRing.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
+    requestAnimationFrame(renderCursor);
+  };
+  requestAnimationFrame(renderCursor);
+
+  const interactives = document.querySelectorAll('a, button, input, textarea, .sc-card, .svc-card, .proj, .cl, .nav-logo, .soc, .cs-soc, .filter-btn, .carousel-dot, .carousel-btn');
+  interactives.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cRing.classList.add('hovered');
+      cDot.classList.add('hovered');
+    });
+    el.addEventListener('mouseleave', () => {
+      cRing.classList.remove('hovered');
+      cDot.classList.remove('hovered');
+    });
+  });
+}
+
+if(sProg) {
+  window.addEventListener('scroll', () => {
+    const scrollPx = document.documentElement.scrollTop || document.body.scrollTop;
+    const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if(winHeightPx > 0) {
+      const scrolled = (scrollPx / winHeightPx) * 100;
+      sProg.style.width = scrolled + '%';
+    }
+  });
+}
+
+/* ─── 3D TILT CARDS ─────────────────────────── */
+const tiltElements = document.querySelectorAll('.svc-card, .proj, .sc-card, .cert-card');
+tiltElements.forEach(el => {
+  el.addEventListener('mousemove', e => {
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+    
+    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    el.style.transition = 'none';
+  });
+  
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    el.style.transition = 'transform 0.5s ease';
+    
+    setTimeout(() => {
+      if(!el.matches(':hover')){
+        el.style.transform = '';
+        el.style.transition = '';
+      }
+    }, 500);
+  });
+});
+
+/* ─── MOBILE MENU ───────────────────────────── */
+function toggleMob(){
+  document.getElementById('mob-menu').classList.toggle('open');
+  const burger = document.getElementById('burger');
+  if(burger) burger.classList.toggle('open');
+}
+
+/* ─── CAROUSEL ──────────────────────────────── */
+(function(){
+  const track = document.getElementById('carousel-track');
+  const slides = track.querySelectorAll('.carousel-slide');
+  const navWrap = document.getElementById('carousel-nav');
+  let current = 0;
+  const total = slides.length;
+
+  /* Build dots */
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.onclick = () => goTo(i);
+    navWrap.appendChild(dot);
+  });
+
+  function goTo(n){
+    current = ((n % total) + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    navWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+  });
+})();
+
+/* ─── FILTER TABS ───────────────────────────── */
+(function(){
+  const showcaseGrid = document.getElementById('project-grid');
+  if (!showcaseGrid) return;
+  
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const allCards = Array.from(showcaseGrid.querySelectorAll('.sc-card'));
+  const loadMoreContainer = document.getElementById('load-more-container');
+  const loadMoreBtn = document.getElementById('btn-load-more');
+  
+  let currentFilter = 'all';
+  const initialCount = 6;
+  let visibleCount = initialCount;
+
+  function updateGrid() {
+    let matchCount = 0;
+    
+    allCards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      const matches = currentFilter === 'all' || category === currentFilter;
+      
+      if (matches) {
+        if (matchCount < visibleCount) {
+          if (card.classList.contains('hidden') || card.style.display === 'none') {
+            card.classList.remove('hidden');
+            card.classList.remove('in-view');
+            card.style.display = 'block';
+            
+            // Manually trigger the entrance animation with a stagger effect
+            const staggerDelay = (matchCount % 6) * 100 + 50;
+            setTimeout(() => {
+              card.classList.add('in-view');
+            }, staggerDelay);
+          }
+        } else {
+          card.classList.add('hidden');
+          card.style.display = 'none';
+        }
+        matchCount++;
+      } else {
+        card.classList.add('hidden');
+        card.style.display = 'none';
+        card.classList.remove('in-view'); // Clean state for when it reappears
+      }
+    });
+
+    if (loadMoreContainer) {
+      if (matchCount > visibleCount) {
+        loadMoreContainer.style.display = 'block';
+      } else {
+        loadMoreContainer.style.display = 'none';
+      }
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      visibleCount = initialCount;
+      updateGrid();
+    });
+  });
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      visibleCount += 6;
+      updateGrid();
+    });
+  }
+
+  // Initialize
+  allCards.forEach(card => {
+    card.classList.add('hidden');
+    card.style.display = 'none';
+  });
+  updateGrid();
+})();
+
+/* ─── SCROLL MOTION (Framer Motion–style) ───── */
+(function(){
+  document.querySelectorAll('[data-stagger]').forEach(parent => {
+    const gap = parseInt(parent.dataset.stagger) || 100;
+    const children = parent.querySelectorAll(':scope > [data-motion]');
+    children.forEach((child, i) => {
+      child.style.transitionDelay = (i * gap) + 'ms';
+    });
+  });
+
+  const motionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const delay = parseInt(el.dataset.delay || 0);
+        if(delay > 0){
+          setTimeout(() => el.classList.add('in-view'), delay);
+        } else {
+          el.classList.add('in-view');
+        }
+        motionObserver.unobserve(el);
+      }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -60px 0px'});
+
+  document.querySelectorAll('[data-motion]').forEach(el => motionObserver.observe(el));
+
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('[data-motion]').forEach(el => {
+      el.style.transition = 'none';
+      el.classList.add('in-view');
+    });
+  }
+})();
+
+/* ─── STAT COUNTERS ─────────────────────────── */
+const scCo = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      let n = 0;
+      const step = Math.max(target / 50, 0.5);
+      const t = setInterval(() => {
+        n = Math.min(n + step, target);
+        el.textContent = Math.floor(n);
+        if(n >= target) clearInterval(t);
+      }, 28);
+      scCo.unobserve(el);
+    }
+  });
+}, {threshold:.5});
+document.querySelectorAll('.sc-count').forEach(el => scCo.observe(el));
+
+/* ─── NAV SCROLL ────────────────────────────── */
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ─── MAGNETIC BUTTONS ──────────────────────── */
+const magnets = document.querySelectorAll('.btn, .soc, .cs-soc, .nav-logo');
+magnets.forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    btn.style.transition = 'none';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+    btn.style.transition = 'transform 0.4s cubic-bezier(.16,1,.3,1)';
+  });
+});
+
+/* ─── BACK TO TOP ───────────────────────────── */
+const backToTop = document.getElementById('back-to-top');
+if(backToTop) {
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    backToTop.classList.add('skew-launch');
+    
+    if (typeof lenis !== 'undefined') {
+      lenis.scrollTo(0, { duration: 2.2, easing: (t) => 1 - Math.pow(1 - t, 4) });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    setTimeout(() => {
+      backToTop.classList.remove('skew-launch');
+      backToTop.classList.remove('show');
+    }, 1500);
+  });
+}
+
+/* ─── PHASE 2: UX & ANIMATIONS ──────────────── */
+// Text Split
+document.querySelectorAll('.text-reveal').forEach(el => {
+  const text = el.innerText;
+  el.innerHTML = '';
+  const words = text.split(' ');
+  words.forEach((word, i) => {
+    const span = document.createElement('span');
+    span.innerText = word + ' ';
+    span.style.transitionDelay = `${i * 0.08}s`;
+    el.appendChild(span);
+  });
+});
+
+// Spotlight
+const spotCards = document.querySelectorAll('.sc-card, .svc-card, .proj');
+spotCards.forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
+});
+
+// Transitions
+document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  if(href && href.endsWith('.html') && !href.startsWith('http') && !link.hasAttribute('target')) {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.remove('loaded');
+      setTimeout(() => {
+        window.location.href = href;
+      }, 600);
+    });
+  }
+});
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+if(themeToggle) {
+  const logoImg = document.getElementById('logo-img');
+  const favicon = document.getElementById('favicon');
+  const preloaderImgs = document.querySelectorAll('.preloader-img');
+  
+  function applyTheme(isCyber) {
+    if(isCyber) {
+      document.body.classList.add('theme-cyber');
+      if(logoImg) logoImg.src = logoImg.src.replace(/logo\.png$/i, 'logo_cyber.png');
+      if(favicon) favicon.href = favicon.href.replace(/favicon\.png$/i, 'favicon_cyber.png');
+      preloaderImgs.forEach(img => {
+        img.src = img.src.replace(/favicon\.png$/i, 'favicon_cyber.png');
+      });
+    } else {
+      document.body.classList.remove('theme-cyber');
+      if(logoImg) logoImg.src = logoImg.src.replace(/logo_cyber\.png$/i, 'logo.png');
+      if(favicon) favicon.href = favicon.href.replace(/favicon_cyber\.png$/i, 'favicon.png');
+      preloaderImgs.forEach(img => {
+        img.src = img.src.replace(/favicon_cyber\.png$/i, 'favicon.png');
+      });
+    }
+  }
+
+  // Check local storage
+  const isCyber = localStorage.getItem('theme') === 'cyber';
+  applyTheme(isCyber);
+  
+  themeToggle.addEventListener('click', () => {
+    const isNowCyber = !document.body.classList.contains('theme-cyber');
+    applyTheme(isNowCyber);
+    localStorage.setItem('theme', isNowCyber ? 'cyber' : 'dark');
+  });
+}
+</script>
 </body>
 </html>

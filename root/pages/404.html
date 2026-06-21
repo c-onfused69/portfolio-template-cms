@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="404 — Page Not Found">
+  <title>404 Not Found — Niloy Portfolio</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="404 Not Found — Niloy Portfolio">
+  <meta property="og:description" content="The page you are looking for does not exist.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link id="favicon" rel="icon" type="image/png" href="../images/favicon.png">
+
+  <!-- Shared Design System -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: var(--bg0);
+      color: var(--t1);
+      overflow: hidden;
+    }
+    
+    #cursor-glow {
+      position: fixed;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,.055) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      transition: left .12s ease, top .12s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .cs-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      padding: 20px;
+    }
+
+    .cs-card {
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .cs-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(239, 68, 68, 0.08) 0%, transparent 50%);
+      animation: rotateGlow 15s linear infinite;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @keyframes rotateGlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cs-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      color: #f87171;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .cs-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #f87171, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cs-desc {
+      font-size: 1.05rem;
+      color: var(--t3);
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #cs-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── PRELOADER ─────────────────────────────── -->
+<div id="preloader">
+  <img src="../images/favicon.png" alt="Loading..." class="preloader-img">
+</div>
+<div class="scroll-progress" id="scroll-progress"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<canvas id="cs-canvas"></canvas>
+
+<div class="cs-wrap">
+  <div class="cs-card" data-motion="scale-in">
+    <div class="cs-tag text-reveal">Error 404</div>
+    <h1 class="cs-title">404</h1>
+    <p class="cs-desc">Oops! The page you are looking for has drifted off into space.</p>
+    
+    <a href="../../index.html" class="btn btn-o" style="padding: 10px 24px;">← Back to Earth</a>
+  </div>
+</div>
+
+<footer style="position: relative; z-index: 10; padding: 20px 0; text-align: center; border-top: 1px solid var(--border); background: var(--bg0);">
+  <div class="wrap">
+    <div style="font-size: .82rem; color: var(--t3); font-family: 'JetBrains Mono', monospace;">
+      © 2026 <em style="font-style: normal; color: var(--blue-l);">Md. Nahijul Islam Niloy</em>. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ── UI ELEMENTS ───────────────────────────── -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+<div id="toast" class="toast">Message sent successfully!</div>
+
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+  /* ─── PRELOADER ─────────────────────────────── */
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.body.classList.add("loaded");
+    }, 400);
+  });
+
+  /* ─── LENIS SMOOTH SCROLL ───────────────────── */
+  let lenis;
+  if (typeof Lenis !== "undefined") {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        lenis.scrollTo(this.getAttribute('href'));
+      });
+    });
+  }
+
+  /* ─── CUSTOM CURSOR & SCROLL PROGRESS ───────── */
+  const cDot = document.getElementById("cursor-dot");
+  const cRing = document.getElementById("cursor-ring");
+  const sProg = document.getElementById("scroll-progress");
+
+  if(cDot && cRing) {
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cDot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+    });
+
+    const renderCursor = () => {
+      ringX += (mouseX - ringX) * 0.2;
+      ringY += (mouseY - ringY) * 0.2;
+      cRing.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
+      requestAnimationFrame(renderCursor);
+    };
+    requestAnimationFrame(renderCursor);
+
+    const interactives = document.querySelectorAll("a, button, input, textarea, .btn");
+    interactives.forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cRing.classList.add("hovered");
+        cDot.classList.add("hovered");
+      });
+      el.addEventListener("mouseleave", () => {
+        cRing.classList.remove("hovered");
+        cDot.classList.remove("hovered");
+      });
+    });
+  }
+
+  if(sProg) {
+    window.addEventListener("scroll", () => {
+      const scrollPx = document.documentElement.scrollTop || document.body.scrollTop;
+      const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if(winHeightPx > 0) {
+        const scrolled = (scrollPx / winHeightPx) * 100;
+        sProg.style.width = scrolled + "%";
+      }
+    });
+  }
+
+  /* ─── SCROLL MOTION ─────────────────────────── */
+  (function () {
+    const motionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            motionObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    document
+      .querySelectorAll("[data-motion]")
+      .forEach((el) => motionObserver.observe(el));
+
+    setTimeout(() => {
+      document
+        .querySelectorAll("[data-motion]")
+        .forEach((el) => el.classList.add("in-view"));
+    }, 100);
+  })();
+
+  /* ─── CANVAS PARTICLES ──────────────────────── */
+  (function () {
+    const canvas = document.getElementById("cs-canvas");
+    const ctx = canvas.getContext("2d");
+    let W, H, particles = [];
+    const N = 30;
+
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+
+    function Particle() {
+      this.reset = function () {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H;
+        this.vx = (Math.random() - 0.5) * 0.2;
+        this.vy = (Math.random() - 0.5) * 0.2;
+        this.r = Math.random() * 1.5 + 0.5;
+      };
+      this.reset();
+    }
+
+    for (let i = 0; i < N; i++) {
+      particles.push(new Particle());
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(239, 68, 68, 0.3)";
+        ctx.fill();
+      });
+
+      ctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        for (let j = i + 1; j < N; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 120) {
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+          }
+        }
+      }
+      ctx.strokeStyle = "rgba(239, 68, 68, 0.05)";
+      ctx.stroke();
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    draw();
+  })();
+
+  /* ─── MAGNETIC BUTTONS ──────────────────────── */
+  const magnets = document.querySelectorAll(".btn");
+  magnets.forEach(btn => {
+    btn.addEventListener("mousemove", e => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      btn.style.transition = "none";
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+      btn.style.transition = "transform 0.4s cubic-bezier(.16,1,.3,1)";
+    });
+  });
+
+  /* ─── BACK TO TOP ───────────────────────────── */
+  const backToTop = document.getElementById("back-to-top");
+  if(backToTop) {
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+    backToTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      backToTop.classList.add('skew-launch');
+      
+      if (typeof lenis !== 'undefined') {
+        lenis.scrollTo(0, { duration: 2.2, easing: (t) => 1 - Math.pow(1 - t, 4) });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      
+      setTimeout(() => {
+        backToTop.classList.remove('skew-launch');
+        backToTop.classList.remove('show');
+      }, 1500);
+    });
+  }
+
+  /* ─── PHASE 2: UX & ANIMATIONS ──────────────── */
+  // Text Split
+  document.querySelectorAll('.text-reveal').forEach(el => {
+    const text = el.innerText;
+    el.innerHTML = '';
+    const words = text.split(' ');
+    words.forEach((word, i) => {
+      const span = document.createElement('span');
+      span.innerText = word + ' ';
+      span.style.transitionDelay = `${i * 0.08}s`;
+      el.appendChild(span);
+    });
+  });
+
+  // Transitions
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if(href && href.endsWith('.html') && !href.startsWith('http') && !link.hasAttribute('target')) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.remove('loaded');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 600);
+      });
+    }
+  });
+
+  /* ─── THEME CHECK ───────────────────────────── */
+  if(localStorage.getItem('theme') === 'cyber') {
+    document.body.classList.add('theme-cyber');
+    const favicon = document.getElementById('favicon');
+    const preloaderImgs = document.querySelectorAll('.preloader-img');
+    
+    if(favicon) favicon.href = favicon.href.replace(/favicon\.png$/i, 'favicon_cyber.png');
+    preloaderImgs.forEach(img => {
+      img.src = img.src.replace(/favicon\.png$/i, 'favicon_cyber.png');
+    });
+  }
+</script>
+</body>
+</html>
