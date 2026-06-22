@@ -39,10 +39,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
-  <link id="favicon" rel="icon" type="image/png" href="root/images/favicon.png">
+  <link id="favicon" rel="icon" href="root/images/favicon.png" type="image/png">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="root/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -53,45 +54,7 @@
 <div class="scroll-progress" id="scroll-progress"></div>
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
-
-<!-- ── NAV ─────────────────────────────────── -->
-<nav id="nav">
-  <div class="wrap nav-in">
-    <a href="#home" class="nav-logo" id="nav-logo">
-      <img src="root/images/logo.png" alt="Niloy Logo" id="logo-img">
-      <span class="logo-text" id="logo-fallback">Niloy</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Work</a></li>
-      <li><a href="#exp">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-right" style="display:flex; gap:16px; align-items:center;">
-      <button id="theme-toggle" class="btn btn-o" style="padding:8px 12px; font-size:.82rem; border-radius:var(--r-sm);" aria-label="Toggle theme">
-        Cyber
-      </button>
-      <a href="root/Resume/Resume of Md Nahijul Islam Niloy.pdf"
-         class="btn btn-o" style="padding:8px 18px;font-size:.82rem;" target="_blank">Download CV ↓</a>
-    </div>
-    <button class="burger" id="burger" aria-label="Open menu" onclick="toggleMob()">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ── MOBILE MENU ──────────────────────────── -->
-<div class="mob-menu" id="mob-menu">
-  <button class="mob-close" aria-label="Close menu" onclick="toggleMob()">✕</button>
-  <a href="#home"      onclick="toggleMob()">Home</a>
-  <a href="#about"     onclick="toggleMob()">About</a>
-  <a href="#services"  onclick="toggleMob()">Services</a>
-  <a href="#portfolio" onclick="toggleMob()">Work</a>
-  <a href="#exp"       onclick="toggleMob()">Experience</a>
-  <a href="#contact"   onclick="toggleMob()">Contact</a>
-</div>
+<div id="dynamic-nav" data-root="./"></div>
 
 <!-- ── HERO ────────────────────────────────── -->
 <section id="home">
@@ -254,32 +217,32 @@
     </div>
     <div class="svc-grid" data-stagger="100">
       <div class="glass svc-card" data-motion="scale-in">
-        <div class="svc-icon">🌐</div>
+        <div class="svc-icon"><i class="fa-solid fa-globe" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
         <h3>Web Development</h3>
         <p>Responsive, high-performance websites and web applications. Clean code, modern architecture, and a user-first approach at every step.</p>
       </div>
       <div class="glass svc-card" data-motion="scale-in">
-        <div class="svc-icon">🎨</div>
+        <div class="svc-icon"><i class="fa-solid fa-palette" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
         <h3>UI / UX Design</h3>
         <p>Intuitive interfaces that users genuinely love. I pair visual design principles with deep user behavior knowledge for experiences that convert.</p>
       </div>
       <div class="glass svc-card" data-motion="scale-in">
-        <div class="svc-icon">📊</div>
+        <div class="svc-icon"><i class="fa-solid fa-chart-column" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
         <h3>Data Analysis</h3>
         <p>Transforming raw data into actionable insight. Python, SQL, and visualization tools to help you understand what your data is actually saying.</p>
       </div>
       <div class="glass svc-card" data-motion="scale-in">
-        <div class="svc-icon">📱</div>
+        <div class="svc-icon"><i class="fa-solid fa-mobile-screen-button" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
         <h3>App Design</h3>
         <p>Beautiful, functional mobile application design for Android and iOS. Every screen crafted with user workflows and brand identity in mind.</p>
       </div>
       <div class="glass svc-card" data-motion="scale-in">
-        <div class="svc-icon">🎭</div>
+        <div class="svc-icon"><i class="fa-solid fa-compass-drafting" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
         <h3>Graphic Design</h3>
         <p>Striking visuals, illustrations, and motion content using industry-leading tools — Photoshop, Illustrator, Premiere Pro, and Blender.</p>
       </div>
       <div class="glass svc-card" data-motion="scale-in">
-        <div class="svc-icon">🔗</div>
+        <div class="svc-icon"><i class="fa-solid fa-link" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
         <h3>Networking Solutions</h3>
         <p>Secure, scalable networking setups designed for seamless connectivity. From infrastructure planning to performance optimization.</p>
       </div>
@@ -337,7 +300,7 @@
     <div class="exp-g">
 
       <div data-motion="fade-left">
-        <div class="exp-col-head">💼 &nbsp;Work Experience</div>
+        <div class="exp-col-head"><i class="fa-solid fa-briefcase" style="color: var(--icon-color); transition: color 0.4s ease;"></i> &nbsp;Work Experience</div>
         <div class="tl">
           <div class="tl-item">
             <div class="tl-date">Dec 2023 — Present</div>
@@ -363,7 +326,7 @@
       </div>
 
       <div data-motion="fade-right">
-        <div class="exp-col-head">🎓 &nbsp;Education</div>
+        <div class="exp-col-head"><i class="fa-solid fa-user-graduate" style="color: var(--icon-color); transition: color 0.4s ease;"></i> &nbsp;Education</div>
         <div class="tl edu">
           <div class="tl-item">
             <div class="tl-date">2019 — Present</div>
@@ -400,21 +363,21 @@
         </p>
         <div class="contact-links">
           <a href="mailto:nniloy888@gmail.com" class="cl">
-            <div class="cl-icon">✉️</div>
+            <div class="cl-icon"><i class="fa-solid fa-envelope" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
             <div>
               <div class="cl-label">Email</div>
               <div class="cl-val">nniloy888@gmail.com</div>
             </div>
           </a>
           <a href="tel:+8801880233550" class="cl">
-            <div class="cl-icon">📞</div>
+            <div class="cl-icon"><i class="fa-solid fa-phone" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
             <div>
               <div class="cl-label">Phone</div>
               <div class="cl-val">+880 1880 233 550</div>
             </div>
           </a>
           <a href="https://github.com/c-onfused69" class="cl" target="_blank" rel="noopener">
-            <div class="cl-icon" style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700">⌨</div>
+            <div class="cl-icon"><i class="fa-brands fa-github" style="color: var(--icon-color); transition: color 0.4s ease;"></i></div>
             <div>
               <div class="cl-label">GitHub</div>
               <div class="cl-val">c-onfused69</div>
@@ -462,23 +425,17 @@
 </section>
 
 <!-- ── FOOTER ────────────────────────────────── -->
-<footer>
-  <div class="wrap">
-    <div class="foot-in">
-      <div class="foot-t">© 2026 <em>Md. Nahijul Islam Niloy</em>. All rights reserved.</div>
-      <div class="foot-t">Built with <em>♥</em> in Bangladesh</div>
-    </div>
-  </div>
-</footer>
+<div id="dynamic-footer"></div>
 
 <!-- Scripts -->
-<!-- ── UI ELEMENTS ───────────────────────────── -->
+<!-- ── UI ELEMENTS ─────────────────────────── -->
 <button id="back-to-top" aria-label="Back to top">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
 </button>
 <div id="toast" class="toast">Message sent successfully!</div>
 
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="root/script/layout.js"></script>
 <script src="root/script/script.js"></script>
 </body>
 </html>

@@ -312,6 +312,8 @@ document.querySelectorAll('.count').forEach(el => co.observe(el));
 function toggleMob(){
   document.getElementById('mob-menu').classList.toggle('open');
   document.getElementById('burger').classList.toggle('open');
+  const nav = document.getElementById('nav');
+  if(nav) nav.classList.toggle('menu-open');
 }
 
 /* ─── FORM SUBMIT & TOAST ───────────────────── */
@@ -395,8 +397,8 @@ document.querySelectorAll('a[href]').forEach(link => {
 });
 
 /* ─── THEME TOGGLE ──────────────────────────── */
-const themeToggle = document.getElementById('theme-toggle');
-if(themeToggle) {
+const themeToggles = document.querySelectorAll('.theme-toggle-btn');
+if(themeToggles.length > 0) {
   const logoImg = document.getElementById('logo-img');
   const favicon = document.getElementById('favicon');
   const preloaderImgs = document.querySelectorAll('.preloader-img');
@@ -409,6 +411,7 @@ if(themeToggle) {
       preloaderImgs.forEach(img => {
         img.src = img.src.replace(/favicon\.png$/i, 'favicon_cyber.png');
       });
+      themeToggles.forEach(btn => btn.innerText = 'Default');
     } else {
       document.body.classList.remove('theme-cyber');
       if(logoImg) logoImg.src = logoImg.src.replace(/logo_cyber\.png$/i, 'logo.png');
@@ -416,6 +419,7 @@ if(themeToggle) {
       preloaderImgs.forEach(img => {
         img.src = img.src.replace(/favicon_cyber\.png$/i, 'favicon.png');
       });
+      themeToggles.forEach(btn => btn.innerText = 'Cyber');
     }
   }
 
@@ -423,10 +427,12 @@ if(themeToggle) {
   const isCyber = localStorage.getItem('theme') === 'cyber';
   applyTheme(isCyber);
   
-  themeToggle.addEventListener('click', () => {
-    const isNowCyber = !document.body.classList.contains('theme-cyber');
-    applyTheme(isNowCyber);
-    localStorage.setItem('theme', isNowCyber ? 'cyber' : 'dark');
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isNowCyber = !document.body.classList.contains('theme-cyber');
+      applyTheme(isNowCyber);
+      localStorage.setItem('theme', isNowCyber ? 'cyber' : 'dark');
+    });
   });
 }
 

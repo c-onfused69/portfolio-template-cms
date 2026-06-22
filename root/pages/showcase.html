@@ -23,6 +23,7 @@
 
   <!-- Shared Design System -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Showcase-specific styles -->
   <style>
@@ -139,43 +140,7 @@
 <div id="cursor-ring"></div>
 
 <!-- ── NAV ─────────────────────────────────── -->
-<nav id="nav" class="scrolled">
-  <div class="wrap nav-in">
-    <a href="../../index.html" class="nav-logo" id="nav-logo">
-      <img src="../images/logo.png" alt="Niloy Logo" id="logo-img">
-      <span class="logo-text" id="logo-fallback">Niloy</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../index.html#about">About</a></li>
-      <li><a href="../../index.html#services">Services</a></li>
-      <li><a href="../../index.html#portfolio" class="active">Work</a></li>
-      <li><a href="../../index.html#exp">Experience</a></li>
-      <li><a href="../../index.html#contact">Contact</a></li>
-    </ul>
-    <div class="nav-right" style="display:flex; gap:16px; align-items:center;">
-      <button id="theme-toggle" class="btn btn-o" style="padding:8px 12px; font-size:.82rem; border-radius:var(--r-sm);" aria-label="Toggle theme">
-        Cyber
-      </button>
-      <a href="../Resume/Resume of Md Nahijul Islam Niloy.pdf"
-         class="btn btn-o" style="padding:8px 18px;font-size:.82rem;" target="_blank">Download CV ↓</a>
-    </div>
-    <button class="burger" id="burger" aria-label="Open menu" onclick="toggleMob()">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ── MOBILE MENU ──────────────────────────── -->
-<div class="mob-menu" id="mob-menu">
-  <button class="mob-close" aria-label="Close menu" onclick="toggleMob()">✕</button>
-  <a href="../../index.html"            onclick="toggleMob()">Home</a>
-  <a href="../../index.html#about"      onclick="toggleMob()">About</a>
-  <a href="../../index.html#services"   onclick="toggleMob()">Services</a>
-  <a href="../../index.html#portfolio"  onclick="toggleMob()">Work</a>
-  <a href="../../index.html#exp"        onclick="toggleMob()">Experience</a>
-  <a href="../../index.html#contact"    onclick="toggleMob()">Contact</a>
-</div>
+<div id="dynamic-nav" data-root="../../"></div>
 
 <!-- ── HERO ─────────────────────────────────── -->
 <section class="sc-hero">
@@ -512,14 +477,7 @@
 </section>
 
 <!-- ── FOOTER ────────────────────────────────── -->
-<footer>
-  <div class="wrap">
-    <div class="foot-in">
-      <div class="foot-t">© 2026 <em>Md. Nahijul Islam Niloy</em>. All rights reserved.</div>
-      <div class="foot-t">Built with <em>♥</em> in Bangladesh</div>
-    </div>
-  </div>
-</footer>
+<div id="dynamic-footer"></div>
 
 <!-- ── UI ELEMENTS ───────────────────────────── -->
 <button id="back-to-top" aria-label="Back to top">
@@ -528,6 +486,7 @@
 <div id="toast" class="toast">Message sent successfully!</div>
 
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="../script/layout.js"></script>
 <script>
 /* ─── PRELOADER ─────────────────────────────── */
 window.addEventListener('load', () => {
