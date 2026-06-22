@@ -221,38 +221,7 @@
             <p>Complete visual identity system — from logo and color palette to typography and application guidelines.</p>
           </div>
         </div>
-        <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/6.png" alt="Featured work 6">
-          <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>Full-Stack Application</h3>
-            <p>End-to-end web application with robust backend, clean API design, and polished frontend experience.</p>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/7.png" alt="Featured work 7">
-          <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>E-Commerce Platform</h3>
-            <p>Feature-rich e-commerce solution with seamless checkout flows and inventory management system.</p>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/8.png" alt="Featured work 8">
-          <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>IoT Monitoring System</h3>
-            <p>Real-time IoT data monitoring platform with intuitive alerts and historical trend analysis.</p>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/9.png" alt="Featured work 9">
-          <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>Portfolio Redesign</h3>
-            <p>Complete portfolio redesign with modern aesthetics, smooth animations, and optimized performance.</p>
-          </div>
-        </div>
+
       </div>
     </div>
     <div class="carousel-nav" id="carousel-nav"></div>
@@ -605,6 +574,8 @@ function toggleMob(){
   document.getElementById('mob-menu').classList.toggle('open');
   const burger = document.getElementById('burger');
   if(burger) burger.classList.toggle('open');
+  const nav = document.getElementById('nav');
+  if(nav) nav.classList.toggle('menu-open');
 }
 
 /* ─── CAROUSEL ──────────────────────────────── */
@@ -864,8 +835,8 @@ document.querySelectorAll('a[href]').forEach(link => {
 });
 
 // Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-if(themeToggle) {
+const themeToggles = document.querySelectorAll('.theme-toggle-btn');
+if(themeToggles.length > 0) {
   const logoImg = document.getElementById('logo-img');
   const favicon = document.getElementById('favicon');
   const preloaderImgs = document.querySelectorAll('.preloader-img');
@@ -878,6 +849,7 @@ if(themeToggle) {
       preloaderImgs.forEach(img => {
         img.src = img.src.replace(/favicon\.png$/i, 'favicon_cyber.png');
       });
+      themeToggles.forEach(btn => btn.innerText = 'Default');
     } else {
       document.body.classList.remove('theme-cyber');
       if(logoImg) logoImg.src = logoImg.src.replace(/logo_cyber\.png$/i, 'logo.png');
@@ -885,6 +857,7 @@ if(themeToggle) {
       preloaderImgs.forEach(img => {
         img.src = img.src.replace(/favicon_cyber\.png$/i, 'favicon.png');
       });
+      themeToggles.forEach(btn => btn.innerText = 'Cyber');
     }
   }
 
@@ -892,10 +865,12 @@ if(themeToggle) {
   const isCyber = localStorage.getItem('theme') === 'cyber';
   applyTheme(isCyber);
   
-  themeToggle.addEventListener('click', () => {
-    const isNowCyber = !document.body.classList.contains('theme-cyber');
-    applyTheme(isNowCyber);
-    localStorage.setItem('theme', isNowCyber ? 'cyber' : 'dark');
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isNowCyber = !document.body.classList.contains('theme-cyber');
+      applyTheme(isNowCyber);
+      localStorage.setItem('theme', isNowCyber ? 'cyber' : 'dark');
+    });
   });
 }
 </script>
