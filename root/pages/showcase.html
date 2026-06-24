@@ -48,7 +48,7 @@
   .carousel-wrap{position:relative;overflow:hidden;border-radius:var(--r);border:1px solid var(--border)}
   .carousel-track{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
   .carousel-slide{min-width:100%;position:relative}
-  .carousel-slide img{width:100%;height:420px;object-fit:cover;display:block}
+  .carousel-slide img{width:100%;aspect-ratio:1536/1024;height:auto;object-fit:cover;display:block}
   .carousel-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,8,15,.95) 0%,rgba(10,15,30,.4) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
   .carousel-ov .proj-cat{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
   .carousel-ov h3{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--t1);margin-bottom:8px}
@@ -112,13 +112,13 @@
   /* ── RESPONSIVE ──────────────────────────── */
   @media(max-width:1024px){
     .sc-grid{grid-template-columns:repeat(2,1fr)}
-    .carousel-slide img{height:320px}
+
     .sc-stats{gap:32px}
   }
   @media(max-width:768px){
     .sc-hero{min-height:42vh;padding-top:calc(var(--nav) + 24px)}
     .sc-grid{grid-template-columns:1fr}
-    .carousel-slide img{height:260px}
+
     .carousel-ov{padding:24px}
     .carousel-ov h3{font-size:1.2rem}
     .carousel-btn{display:none}
@@ -162,8 +162,8 @@
           <div class="sc-stat-l">categories</div>
         </div>
         <div class="sc-stat">
-          <span class="sc-stat-n"><em class="sc-count" data-target="1">0</em></span>
-          <div class="sc-stat-l">certificate</div>
+          <span class="sc-stat-n"><em class="sc-count" data-target="5">0</em></span>
+          <div class="sc-stat-l">certificates</div>
         </div>
       </div>
     </div>
@@ -182,43 +182,43 @@
       <button class="carousel-btn next" onclick="carouselMove(1)" aria-label="Next slide">›</button>
       <div class="carousel-track" id="carousel-track">
         <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/1.jpg" alt="Featured work 1">
+          <img loading="lazy" src="../images/showcase/works/featured sample 2.png" alt="Sebabratee Platform">
           <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>Creative Web Design</h3>
-            <p>A modern, responsive web experience built with attention to every interaction detail and visual polish.</p>
+            <div class="proj-cat">Web Development</div>
+            <h3>Sebabratee Platform</h3>
+            <p>End-to-end full-stack development featuring intuitive UI/UX design, robust database architecture, and seamless deployment.</p>
           </div>
         </div>
         <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/2.png" alt="Featured work 2">
+          <img loading="lazy" src="../images/showcase/works/featured sample 3.png" alt="AskYourBee Web App">
           <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>Data-Driven Dashboard</h3>
-            <p>Interactive data visualizations and analytics dashboards designed for clarity and actionable insight.</p>
+            <div class="proj-cat">Web Development</div>
+            <h3>AskYourBee Web App</h3>
+            <p>Complete web solution combining engaging UI/UX design with scalable database architecture and automated deployment.</p>
           </div>
         </div>
         <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/3.png" alt="Featured work 3">
+          <img loading="lazy" src="../images/showcase/works/featured sample 4.png" alt="Job Koi Platform">
           <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>Network Architecture</h3>
-            <p>Secure, scalable networking infrastructure designed for enterprise-grade reliability and performance.</p>
+            <div class="proj-cat">Cross-Platform</div>
+            <h3>Job Koi Platform</h3>
+            <p>Comprehensive platform spanning web and mobile apps, featuring integrated database systems, deployment, and AdSense integration.</p>
           </div>
         </div>
         <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/4.png" alt="Featured work 4">
+          <img loading="lazy" src="../images/showcase/works/featured sample 6.png" alt="Interactive 3D Web Experience">
           <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>Mobile UI Concept</h3>
-            <p>Intuitive mobile application design with seamless navigation flows and delightful micro-interactions.</p>
+            <div class="proj-cat">Interactive Web</div>
+            <h3>Interactive 3D Experience</h3>
+            <p>Immersive open-source web experience featuring interactive Spline 3D animations, EmailJS integration, and fluid UI/UX design.</p>
           </div>
         </div>
         <div class="carousel-slide">
-          <img loading="lazy" src="../images/showcase/5.png" alt="Featured work 5">
+          <img loading="lazy" src="../images/showcase/works/featured sample 8.png" alt="Desh Engineering Management Panel">
           <div class="carousel-ov">
-            <div class="proj-cat">Showcase</div>
-            <h3>Brand Identity System</h3>
-            <p>Complete visual identity system — from logo and color palette to typography and application guidelines.</p>
+            <div class="proj-cat">UI/UX & App Design</div>
+            <h3>Desh Engineering Dashboard</h3>
+            <p>Enterprise-grade web and mobile application featuring comprehensive dashboard UI/UX and advanced management tools.</p>
           </div>
         </div>
 
@@ -251,155 +251,52 @@
 
       <!-- ROW 1 -->
       <div class="sc-card" data-motion="flip-up" data-category="web">
-        <img loading="lazy" src="../images/showcase/works/1.jpg" alt="Web Application">
+        <img loading="lazy" src="../images/showcase/works/featured sample 2.png" alt="Sebabratee Platform">
         <div class="sc-card-ov">
           <div class="sc-card-cat">Web Development</div>
-          <div class="sc-card-title">Web Applications</div>
-          <div class="sc-card-desc">Scalable, responsive web apps built with modern technologies and clean architecture.</div>
+          <div class="sc-card-title">Sebabratee Platform</div>
+          <div class="sc-card-desc">End-to-end full-stack development featuring intuitive UI/UX design, robust database architecture, and seamless deployment.</div>
           <a href="comingsoon.html" class="sc-card-link">View Details →</a>
         </div>
       </div>
 
-      <div class="sc-card" data-motion="flip-up" data-category="network">
-        <img loading="lazy" src="../images/showcase/works/2.jpg" alt="Networking Project">
+      <div class="sc-card" data-motion="flip-up" data-category="web">
+        <img loading="lazy" src="../images/showcase/works/featured sample 3.png" alt="AskYourBee Web App">
         <div class="sc-card-ov">
-          <div class="sc-card-cat">Infrastructure</div>
-          <div class="sc-card-title">Networking Projects</div>
-          <div class="sc-card-desc">Robust networking solutions designed for seamless connectivity and security.</div>
+          <div class="sc-card-cat">Web Development</div>
+          <div class="sc-card-title">AskYourBee Web App</div>
+          <div class="sc-card-desc">Complete web solution combining engaging UI/UX design with scalable database architecture and automated deployment.</div>
           <a href="comingsoon.html" class="sc-card-link">View Details →</a>
         </div>
       </div>
 
       <div class="sc-card" data-motion="flip-up" data-category="mobile">
-        <img loading="lazy" src="../images/showcase/works/15.jpg" alt="Mobile Application">
+        <img loading="lazy" src="../images/showcase/works/featured sample 4.png" alt="Job Koi Platform">
         <div class="sc-card-ov">
-          <div class="sc-card-cat">Mobile</div>
-          <div class="sc-card-title">Mobile Applications</div>
-          <div class="sc-card-desc">High-quality Android & iOS app design with exceptional user experiences.</div>
+          <div class="sc-card-cat">Cross-Platform</div>
+          <div class="sc-card-title">Job Koi Platform</div>
+          <div class="sc-card-desc">Comprehensive platform spanning web and mobile apps, featuring integrated database systems, deployment, and AdSense integration.</div>
           <a href="comingsoon.html" class="sc-card-link">View Details →</a>
         </div>
       </div>
 
       <!-- ROW 2 -->
       <div class="sc-card" data-motion="flip-up" data-category="web">
-        <img loading="lazy" src="../images/showcase/works/3.jpg" alt="Web Platform">
+        <img loading="lazy" src="../images/showcase/works/featured sample 6.png" alt="Interactive 3D Experience">
         <div class="sc-card-ov">
-          <div class="sc-card-cat">Web Development</div>
-          <div class="sc-card-title">Interactive Web Platform</div>
-          <div class="sc-card-desc">Dynamic web platform with rich interactivity, real-time features, and polished UI.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <div class="sc-card" data-motion="flip-up" data-category="network">
-        <img loading="lazy" src="../images/showcase/works/4.jpg" alt="Network Infrastructure">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Infrastructure</div>
-          <div class="sc-card-title">Network Infrastructure</div>
-          <div class="sc-card-desc">Enterprise-grade network design optimizing performance and long-term scalability.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <div class="sc-card" data-motion="flip-up" data-category="mobile">
-        <img loading="lazy" src="../images/showcase/works/5.jpg" alt="Mobile App Design">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Mobile</div>
-          <div class="sc-card-title">App Interface Design</div>
-          <div class="sc-card-desc">Thoughtful mobile UI/UX with intuitive navigation and smooth transitions.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <!-- ROW 3 -->
-      <div class="sc-card" data-motion="flip-up" data-category="web">
-        <img loading="lazy" src="../images/showcase/works/6.jpg" alt="Dashboard">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Web Development</div>
-          <div class="sc-card-title">Analytics Dashboard</div>
-          <div class="sc-card-desc">Data-rich dashboard with interactive charts, filters, and export functionality.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <div class="sc-card" data-motion="flip-up" data-category="network">
-        <img loading="lazy" src="../images/showcase/works/7.jpg" alt="Security Setup">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Infrastructure</div>
-          <div class="sc-card-title">Security Architecture</div>
-          <div class="sc-card-desc">Comprehensive security infrastructure with monitoring, firewalls, and threat detection.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <div class="sc-card" data-motion="flip-up" data-category="mobile">
-        <img loading="lazy" src="../images/showcase/works/8.jpg" alt="Mobile Commerce">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Mobile</div>
-          <div class="sc-card-title">Mobile Commerce App</div>
-          <div class="sc-card-desc">Feature-complete mobile commerce experience with seamless payment integration.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <!-- ROW 4 -->
-      <div class="sc-card" data-motion="flip-up" data-category="web">
-        <img loading="lazy" src="../images/showcase/works/10.jpg" alt="CMS Platform">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Web Development</div>
-          <div class="sc-card-title">Content Management System</div>
-          <div class="sc-card-desc">Custom CMS built for flexibility, performance, and an intuitive editing experience.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <div class="sc-card" data-motion="flip-up" data-category="network">
-        <img loading="lazy" src="../images/showcase/works/11.jpg" alt="Cloud Setup">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Infrastructure</div>
-          <div class="sc-card-title">Cloud Deployment</div>
-          <div class="sc-card-desc">Scalable cloud infrastructure with automated deployment pipelines and monitoring.</div>
+          <div class="sc-card-cat">Interactive Web</div>
+          <div class="sc-card-title">Interactive 3D Experience</div>
+          <div class="sc-card-desc">Immersive open-source web experience featuring interactive Spline 3D animations, EmailJS integration, and fluid UI/UX design.</div>
           <a href="comingsoon.html" class="sc-card-link">View Details →</a>
         </div>
       </div>
 
       <div class="sc-card" data-motion="flip-up" data-category="design">
-        <img loading="lazy" src="../images/showcase/works/14.jpg" alt="Brand Design">
+        <img loading="lazy" src="../images/showcase/works/featured sample 8.png" alt="Desh Engineering Dashboard">
         <div class="sc-card-ov">
-          <div class="sc-card-cat">Design</div>
-          <div class="sc-card-title">Visual Identity Design</div>
-          <div class="sc-card-desc">Complete brand identity — logo, color system, typography, and asset guidelines.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <!-- ROW 5 -->
-      <div class="sc-card" data-motion="flip-up" data-category="web">
-        <img loading="lazy" src="../images/showcase/works/13.jpg" alt="Portfolio Site">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Web Development</div>
-          <div class="sc-card-title">Portfolio Website</div>
-          <div class="sc-card-desc">Modern portfolio site with particle animations, scroll motion, and dark theme.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <div class="sc-card" data-motion="flip-up" data-category="design">
-        <img loading="lazy" src="../images/showcase/works/12.jpg" alt="UI Kit">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Design</div>
-          <div class="sc-card-title">UI Component Library</div>
-          <div class="sc-card-desc">Reusable design system with tokens, components, and comprehensive documentation.</div>
-          <a href="comingsoon.html" class="sc-card-link">View Details →</a>
-        </div>
-      </div>
-
-      <div class="sc-card" data-motion="flip-up" data-category="web">
-        <img loading="lazy" src="../images/showcase/works/3.jpg" alt="Landing Page">
-        <div class="sc-card-ov">
-          <div class="sc-card-cat">Web Development</div>
-          <div class="sc-card-title">Landing Page Design</div>
-          <div class="sc-card-desc">High-conversion landing page with A/B tested layouts and compelling copy.</div>
+          <div class="sc-card-cat">UI/UX & App Design</div>
+          <div class="sc-card-title">Desh Engineering Dashboard</div>
+          <div class="sc-card-desc">Enterprise-grade web and mobile application featuring comprehensive dashboard UI/UX and advanced management tools.</div>
           <a href="comingsoon.html" class="sc-card-link">View Details →</a>
         </div>
       </div>
@@ -634,6 +531,7 @@ function toggleMob(){
       d.classList.toggle('active', i === current);
     });
   }
+  window.carouselMove = function(dir) { goTo(current + dir); };
 
   let startX = 0;
   track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
